@@ -1,1 +1,48 @@
+# Dependencies
 node_modules
+package-lock.json
+yarn.lock
+
+# Build artifacts
+browser-app/lib/
+browser-app/src-gen/
+browser-app/gen-webpack*.js
+custom-ui/lib/
+
+# Turbo cache
+.turbo/
+
+# Serena (AI agent memory)
+.serena/
+
+# Workspace (user files)
+workspace/
+
+# Plugin node_modules and locks
+plugins/*/extension/node_modules/
+plugins/*/extension/package-lock.json
+
+# Plugin build artifacts (keep dist for Material Icons)
+# plugins/*/extension/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.temp
+/tmp/

@@ -26,7 +26,7 @@
   "scripts": {
     "build": "npm run rebuild && theia build --mode production",
     "rebuild": "theia rebuild:browser --cacheRoot ..",
-    "start": "theia start /project/workspace -p 4000 --plugins=local-dir:../plugins",
+    "start": "theia start ../workspace -p 4000 --plugins=local-dir:../plugins",
     "watch": "npm run rebuild && theia build --watch --mode development",
     "clean": "theia clean && rimraf node_modules"
   },
