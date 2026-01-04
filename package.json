@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "start": "turbo start",
+    "watch": "turbo run watch",
+    "postinstall": "theia check:theia-version",
+    "clean": "turbo run clean && rimraf node_modules",
+    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false"
+  },
+  "workspaces": [
+    "browser-app",
+    "custom-ui"
+  ],
+  "packageManager": "npm@11.0.0",
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode.javascript": "https://open-vsx.org/api/vscode/javascript/1.95.3/file/vscode.javascript-1.95.3.vsix",
+    "vscode.typescript": "https://open-vsx.org/api/vscode/typescript/1.95.3/file/vscode.typescript-1.95.3.vsix",
+    "vscode.typescript-language-features": "https://open-vsx.org/api/vscode/typescript-language-features/1.95.3/file/vscode.typescript-language-features-1.95.3.vsix",
+    "vscode.json": "https://open-vsx.org/api/vscode/json/1.95.3/file/vscode.json-1.95.3.vsix",
+    "vscode.css": "https://open-vsx.org/api/vscode/css/1.95.3/file/vscode.css-1.95.3.vsix",
+    "vscode.html": "https://open-vsx.org/api/vscode/html/1.95.3/file/vscode.html-1.95.3.vsix",
+    "vscode.markdown": "https://open-vsx.org/api/vscode/markdown/1.95.3/file/vscode.markdown-1.95.3.vsix",
+    "zhuangtongfa.material-theme": "https://open-vsx.org/api/zhuangtongfa/material-theme/3.19.0/file/zhuangtongfa.material-theme-3.19.0.vsix",
+    "PKief.material-icon-theme": "https://open-vsx.org/api/PKief/material-icon-theme/5.23.0/file/PKief.material-icon-theme-5.23.0.vsix"
+  },
+  "devDependencies": {
+    "@flexbe/eslint-config": "^1.0.11",
+    "rimraf": "6.0.1",
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "copy-webpack-plugin": "13.0.0",
+    "yargs": "17",
+    "@types/yargs": "17"
+  }
+}

@@ -1,0 +1,216 @@
+
+
+> browser-app@0.0.0 start
+> theia start /project/workspace -p 4000 --plugins=local-dir:../plugins
+
+Configuring to accept webviews on '^.+\.webview\..+$' hostname.
+2025-07-01T17:02:10.550Z root INFO Backend u.initialize: 35.6 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.550Z root INFO Backend Object.initialize: 29.9 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.550Z root INFO Backend s.initialize: 0.8 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.550Z root INFO Backend s.initialize: 0.5 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.550Z root INFO Backend m.initialize: 0.5 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.552Z root INFO Backend c.initialize: 30.2 ms [Finished 0.299 s after backend start]
+2025-07-01T17:02:10.557Z root INFO configured all backend app contributions
+2025-07-01T17:02:10.557Z root INFO Backend .onStart: 0.9 ms [Finished 0.306 s after backend start]
+2025-07-01T17:02:10.558Z root INFO Configuration directory URI: 'file:///root/.theia-ide'
+2025-07-01T17:02:10.559Z root INFO Theia app listening on http://127.0.0.1:4000.
+2025-07-01T17:02:10.560Z root INFO Error: ENOENT: no such file or directory, open '/root/.theia-ide/backend-settings.json'
+2025-07-01T17:02:10.560Z root INFO Backend f.onStart: 3.5 ms [Finished 0.310 s after backend start]
+2025-07-01T17:02:10.560Z root INFO Backend s.onStart: 0.3 ms [Finished 0.310 s after backend start]
+2025-07-01T17:02:10.561Z root INFO Finished starting backend application: 0.0 ms [Finished 0.310 s after backend start]
+2025-07-01T17:02:10.562Z root WARN The local plugin referenced by local-dir:/root/.theia-ide/plugins does not exist.
+2025-07-01T17:02:10.562Z root WARN The local plugin referenced by local-dir:/root/.theia-ide/deployedPlugins does not exist.
+2025-07-01T17:02:10.570Z root INFO Resolve plugins list: 8.4 ms [Finished 0.319 s after backend start]
+2025-07-01T17:02:10.592Z root INFO Deploy plugins list: 30.4 ms [Finished 0.341 s after backend start]
+2025-07-01T17:02:16.193Z root INFO creating connection for 2765bdac-df3f-4dd9-9708-a0cf3a52c5e7
+2025-07-01T17:02:17.222Z root WARN Frontend J.configure took longer than the expected maximum 100 milliseconds: 210.9 ms [Finished 2.798 s after frontend start]
+2025-07-01T17:02:17.260Z root WARN Failed to obtain keyboard layout map. SecurityError: getLayoutMap() must be called from a top-level browsing context or allowed by the permission policy.
+2025-07-01T17:02:17.280Z root INFO Start frontend contributions: 283.9 ms [Finished 2.837 s after frontend start]
+2025-07-01T17:02:17.280Z root INFO Changed application state from 'init' to 'started_contributions'.
+2025-07-01T17:02:17.280Z root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2025-07-01T17:02:17.280Z root INFO >>> Restoring the layout state...
+2025-07-01T17:02:17.364Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Waiting for backend deployment: 94.4 ms [Finished 2.931 s after frontend start]
+2025-07-01T17:02:17.457Z root INFO [hosted-plugin: 731] PLUGIN_HOST(731) starting instance
+2025-07-01T17:02:17.479Z root WARN Linked preference "workbench.colorCustomizations" not found.
+2025-07-01T17:02:17.805Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Sync of 9 plugins: 454.7 ms [Finished 3.385 s after frontend start]
+2025-07-01T17:02:17.814Z root INFO <<< Nothing to restore.
+2025-07-01T17:02:17.875Z root INFO Initialize the workbench layout: 553.6 ms [Finished 3.401 s after frontend start]
+2025-07-01T17:02:17.875Z root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2025-07-01T17:02:17.875Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Loading plugin contributions
+2025-07-01T17:02:17.875Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Load contributions of 9 plugins: 41.7 ms [Finished 3.443 s after frontend start]
+2025-07-01T17:02:17.877Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.html]: Language for 'source.python' not found.
+2025-07-01T17:02:17.877Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.html]: Language for 'source.smarty' not found.
+2025-07-01T17:02:17.887Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.frontmatter' not found.
+2025-07-01T17:02:17.887Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.ini' not found.
+2025-07-01T17:02:17.887Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.java' not found.
+2025-07-01T17:02:17.888Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.lua' not found.
+2025-07-01T17:02:17.888Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.makefile' not found.
+2025-07-01T17:02:17.888Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.perl' not found.
+2025-07-01T17:02:17.889Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.r' not found.
+2025-07-01T17:02:17.889Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.ruby' not found.
+2025-07-01T17:02:17.889Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.php' not found.
+2025-07-01T17:02:17.889Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.sql' not found.
+2025-07-01T17:02:17.889Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.vs_net' not found.
+2025-07-01T17:02:17.890Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.xml' not found.
+2025-07-01T17:02:17.890Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.xsl' not found.
+2025-07-01T17:02:17.891Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.yaml' not found.
+2025-07-01T17:02:17.891Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.dosbatch' not found.
+2025-07-01T17:02:17.891Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.clojure' not found.
+2025-07-01T17:02:17.891Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.coffee' not found.
+2025-07-01T17:02:17.891Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.c' not found.
+2025-07-01T17:02:17.892Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.cpp' not found.
+2025-07-01T17:02:17.892Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.diff' not found.
+2025-07-01T17:02:17.892Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.dockerfile' not found.
+2025-07-01T17:02:17.893Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.go' not found.
+2025-07-01T17:02:17.893Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.groovy' not found.
+2025-07-01T17:02:17.893Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.pug' not found.
+2025-07-01T17:02:17.893Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.latex' not found.
+2025-07-01T17:02:17.894Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.less' not found.
+2025-07-01T17:02:17.894Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.objc' not found.
+2025-07-01T17:02:17.894Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.scss' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.perl6' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.powershell' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.python' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.rust' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.scala' not found.
+2025-07-01T17:02:17.895Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.shellscript' not found.
+2025-07-01T17:02:17.898Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.csharp' not found.
+2025-07-01T17:02:17.898Z root WARN [978abbfc-0ef5-4ae4-847c-140b511d54e5][vscode.markdown]: Language for 'meta.embedded.block.fsharp' not found.
+2025-07-01T17:02:18.723Z root INFO Replace loading indicator with ready workbench UI (animation): 817.2 ms [Finished 4.298 s after frontend start]
+2025-07-01T17:02:18.723Z root INFO Changed application state from 'initialized_layout' to 'ready'.
+2025-07-01T17:02:18.724Z root INFO Frontend application start: 1590.1 ms [Finished 8.473 s after backend start]
+2025-07-01T17:02:19.153Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Starting plugins.
+2025-07-01T17:02:19.322Z plugin-host INFO PLUGIN_HOST(731): PluginManagerExtImpl/init()
+2025-07-01T17:02:19.322Z plugin-manager WARN Unsupported activation events: onWalkthrough:nodejsWelcome, please open an issue: https://github.com/eclipse-theia/theia/issues/new
+2025-07-01T17:02:19.381Z plugin-manager ERROR Activating plugin 'One Dark Pro' failed: Error: Cannot find module 'marked'
+Require stack:
+- /project/workspace/plugins/zhuangtongfa.material-theme/extension/out/webviews/Changelog.js
+- /project/workspace/plugins/zhuangtongfa.material-theme/extension/out/extension.js
+- /project/workspace/browser-app/lib/backend/261.js
+- /project/workspace/browser-app/lib/backend/plugin-host.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1143:15)
+    at Module._load (node:internal/modules/cjs/loader:984:27)
+    at e._load (/project/workspace/browser-app/lib/backend/261.js:1:325802)
+    at t._load (/project/workspace/browser-app/lib/backend/261.js:1:520613)
+    at e._load (/project/workspace/browser-app/lib/backend/plugin-vscode-init.js:1:4585)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (/project/workspace/plugins/zhuangtongfa.material-theme/extension/out/webviews/Changelog.js:8:18)
+    at Module._compile (node:internal/modules/cjs/loader:1369:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1427:10)
+2025-07-01T17:02:19.382Z plugin-manager ERROR Activating plugin 'Material Icon Theme' failed: Error: Cannot find module '/project/workspace/plugins/PKief.material-icon-theme/extension/dist/extension/desktop/extension.cjs'
+Require stack:
+- /project/workspace/browser-app/lib/backend/261.js
+- /project/workspace/browser-app/lib/backend/plugin-host.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1143:15)
+    at Module._load (node:internal/modules/cjs/loader:984:27)
+    at e._load (/project/workspace/browser-app/lib/backend/261.js:1:325802)
+    at t._load (/project/workspace/browser-app/lib/backend/261.js:1:520613)
+    at e._load (/project/workspace/browser-app/lib/backend/plugin-vscode-init.js:1:4585)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:179:18)
+    at t.dynamicRequire (/project/workspace/browser-app/lib/backend/261.js:1:142160)
+    at Object.loadPlugin (/project/workspace/browser-app/lib/backend/261.js:1:617863)
+    at /project/workspace/browser-app/lib/backend/261.js:1:589900
+2025-07-01T17:02:19.382Z root INFO [978abbfc-0ef5-4ae4-847c-140b511d54e5] Start of 9 plugins: 1470.7 ms [Finished 4.959 s after frontend start]
+2025-07-01T17:02:28.667Z root INFO [FLEXBE-UI] Command executed: editor.action.triggerSuggest with args: [ [90mundefined[39m ]
+2025-07-01T17:02:30.954Z root INFO [FLEXBE-UI] Command executed: workbench.action.showCommands with args: [ [90mundefined[39m ]
+2025-07-01T17:02:35.860Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:36.187Z root INFO [FLEXBE-UI] Command executed: workbench.action.selectIconTheme with args: []
+2025-07-01T17:02:37.271Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:37.968Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:38.607Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:39.045Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:40.441Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:40.796Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:43.443Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:44.205Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:47.921Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:48.246Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:49.229Z root INFO [FLEXBE-UI] Command executed: quickInput.next with args: [ [90mundefined[39m ]
+2025-07-01T17:02:49.840Z root INFO [FLEXBE-UI] Command executed: quickInput.previous with args: [ [90mundefined[39m ]
+2025-07-01T17:02:52.862Z root INFO Changed application state from 'ready' to 'closing_window'.
+2025-07-01T17:02:52.862Z root INFO >>> Storing the layout...
+2025-07-01T17:02:52.862Z root INFO <<< The layout has been successfully stored.
+2025-07-01T17:02:52.863Z root INFO >>> Stopping frontend contributions...
+2025-07-01T17:02:52.863Z root INFO <<< All frontend contributions have been stopped.
+2025-07-01T17:02:52.864Z root INFO socket closed
+2025-07-01T17:02:52.864Z root INFO setting close timeout for id 2765bdac-df3f-4dd9-9708-a0cf3a52c5e7 to 3000
+2025-07-01T17:02:55.404Z root INFO creating connection for fd62294d-4892-453c-b385-f868490111ef
+2025-07-01T17:02:55.866Z root INFO closing connection for 2765bdac-df3f-4dd9-9708-a0cf3a52c5e7
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/localization-server'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/os'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/commands'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/logger'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/messageService'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/remote-filesystem'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/envs'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/workspace'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/stopwatch'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/application'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/i18n'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/quickInput'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/debug'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/shell-terminal'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/quickPick'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/task'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/search'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/hostedPlugin'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/plugin-ext'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/plugin-paths'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/cli-preferences'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/search-in-workspace'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/request-service'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/keyStore'.
+2025-07-01T17:02:55.867Z root INFO Closing channel on service path '/services/languagePackService'.
+2025-07-01T17:02:56.197Z root WARN Frontend J.configure took longer than the expected maximum 100 milliseconds: 173.5 ms [Finished 1.396 s after frontend start]
+2025-07-01T17:02:56.219Z root WARN Failed to obtain keyboard layout map. SecurityError: getLayoutMap() must be called from a top-level browsing context or allowed by the permission policy.
+2025-07-01T17:02:56.243Z root INFO Start frontend contributions: 227.6 ms [Finished 1.433 s after frontend start]
+2025-07-01T17:02:56.243Z root INFO Changed application state from 'init' to 'started_contributions'.
+2025-07-01T17:02:56.243Z root INFO Changed application state from 'started_contributions' to 'attached_shell'.
+2025-07-01T17:02:56.243Z root INFO >>> Restoring the layout state...
+2025-07-01T17:02:56.376Z root INFO [39688969-78e9-475f-9db8-bae6c0e44d36] Waiting for backend deployment: 101.4 ms [Finished 1.534 s after frontend start]
+2025-07-01T17:02:56.416Z root INFO [hosted-plugin: 808] PLUGIN_HOST(808) starting instance
+2025-07-01T17:02:56.463Z root WARN Linked preference "workbench.colorCustomizations" not found.
+2025-07-01T17:02:56.772Z root INFO [39688969-78e9-475f-9db8-bae6c0e44d36] Sync of 9 plugins: 436.7 ms [Finished 1.971 s after frontend start]
+2025-07-01T17:02:56.777Z NavigationLocationService WARN no activative navigation Error: No active navigation
+    at n.register (https://fqn9f4-4000.csb.app/bundle.js:2:8845946)
+    at n.restoreNavigationLocations (https://fqn9f4-4000.csb.app/bundle.js:2:2151748)
+    at async n.restoreState (https://fqn9f4-4000.csb.app/bundle.js:2:2151338)
+2025-07-01T17:02:57.148Z root INFO <<< The layout has been successfully restored.
+2025-07-01T17:02:57.233Z root INFO Initialize the workbench layout: 905.7 ms [Finished 2.342 s after frontend start]
+2025-07-01T17:02:57.233Z root INFO Changed application state from 'attached_shell' to 'initialized_layout'.
+2025-07-01T17:02:57.233Z root INFO [39688969-78e9-475f-9db8-bae6c0e44d36] Loading plugin contributions
+2025-07-01T17:02:57.233Z root INFO [39688969-78e9-475f-9db8-bae6c0e44d36] Load contributions of 9 plugins: 44.5 ms [Finished 2.387 s after frontend start]
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.html]: Language for 'source.python' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.html]: Language for 'source.smarty' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.frontmatter' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.ini' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.java' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.lua' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.makefile' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.perl' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.r' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.ruby' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.php' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.sql' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.vs_net' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.xml' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.xsl' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.yaml' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.dosbatch' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.clojure' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.coffee' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.c' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.cpp' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.diff' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.dockerfile' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.go' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.groovy' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.pug' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.latex' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.less' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.objc' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.scss' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.perl6' not found.
+2025-07-01T17:02:57.233Z root WARN [39688969-78e9-475f-9db8-bae6c0e44d36][vscode.markdown]: Language for 'meta.embedded.block.powershell' not found.

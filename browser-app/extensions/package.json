@@ -1,0 +1,12 @@
+{
+    "name": "typescript-extensions",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^5.8.3"
+    }
+}

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=require("@theia/core/lib/common/command"),e=require("./command-spy.js"),i=require("./register-command-contribution.js"),r=require("./unregister-commands-contribution.js");function m({bind:n,rebind:o}){r.unregisterCommands({bind:n,rebind:o}),i.registerCommands({bind:n,rebind:o}),n(t.CommandContribution).to(e.CommandSpyContribution).inSingletonScope()}exports.initCommands=m;
+//# sourceMappingURL=index.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"websocket-endpoint.d.ts","sourceRoot":"","sources":["../../../src/backend/websocket-endpoint.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,IAAI,sBAAsB,EAAE,MAAM,mDAAmD,CAAC;AAEhH,OAAO,KAAK,IAAI,MAAM,MAAM,CAAC;AAC7B,OAAO,KAAK,KAAK,MAAM,OAAO,CAAC;AAG/B,qBACa,iBAAkB,SAAQ,sBAAsB;IAEzD,OAAO,CAAC,MAAM,EAAE,IAAI,CAAC,MAAM,GAAG,KAAK,CAAC,MAAM,GAAG,IAAI;CA6BpD"}

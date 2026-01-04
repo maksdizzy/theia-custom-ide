@@ -1,0 +1,2 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const n=require("@theia/core/lib/node/messaging/websocket-endpoint"),o=require("@theia/core/shared/inversify"),t=require("./websocket-endpoint.js"),i=new o.ContainerModule((s,u,d,e)=>{e(n.WebsocketEndpoint).to(t.WebsocketEndpoint).inSingletonScope()});exports.default=i;
+//# sourceMappingURL=module.js.map

@@ -1,0 +1,44 @@
+
+
+> @flexbe/custom-ui@0.0.0 build
+> vite build && npm run dts
+
+[36mvite v6.3.5 [32mbuilding for production...[36m[39m
+[2K[1Gtransforming (1) [2msrc/frontend/index.ts[22m[2K[1Gtransforming (29) [2msrc/frontend/commands/command-spy.ts[22m[2K[1G[32m✓[39m 32 modules transformed.
+[2K[1Grendering chunks (1)...[2K[1Grendering chunks (2)...[2K[1Grendering chunks (3)...[2K[1Grendering chunks (4)...[2K[1Grendering chunks (5)...[2K[1Grendering chunks (6)...[2K[1Grendering chunks (7)...[2K[1Grendering chunks (8)...[2K[1Grendering chunks (9)...[2K[1Grendering chunks (10)...[2K[1Grendering chunks (11)...[2K[1Grendering chunks (12)...[2K[1Grendering chunks (13)...[2K[1Grendering chunks (14)...[2K[1Grendering chunks (15)...[2K[1Grendering chunks (16)...[2K[1Grendering chunks (17)...[2K[1Grendering chunks (18)...[2K[1Grendering chunks (19)...[2K[1Grendering chunks (20)...[2K[1Grendering chunks (21)...[2K[1Grendering chunks (22)...[2K[1Grendering chunks (23)...[2K[1Grendering chunks (24)...[2K[1Grendering chunks (25)...[2K[1Grendering chunks (26)...[2K[1Grendering chunks (27)...[2K[1Grendering chunks (28)...[2K[1Grendering chunks (29)...[2K[1Grendering chunks (30)...[2K[1Grendering chunks (31)...[2K[1Grendering chunks (32)...[2K[1G[2K[1Gcomputing gzip size (0)...[2K[1Gcomputing gzip size (1)...[2K[1Gcomputing gzip size (2)...[2K[1Gcomputing gzip size (3)...[2K[1Gcomputing gzip size (4)...[2K[1Gcomputing gzip size (5)...[2K[1Gcomputing gzip size (6)...[2K[1Gcomputing gzip size (7)...[2K[1Gcomputing gzip size (8)...[2K[1Gcomputing gzip size (9)...[2K[1Gcomputing gzip size (10)...[2K[1Gcomputing gzip size (11)...[2K[1Gcomputing gzip size (12)...[2K[1Gcomputing gzip size (13)...[2K[1Gcomputing gzip size (14)...[2K[1Gcomputing gzip size (15)...[2K[1Gcomputing gzip size (16)...[2K[1Gcomputing gzip size (17)...[2K[1Gcomputing gzip size (18)...[2K[1Gcomputing gzip size (19)...[2K[1Gcomputing gzip size (20)...[2K[1Gcomputing gzip size (21)...[2K[1Gcomputing gzip size (22)...[2K[1Gcomputing gzip size (23)...[2K[1Gcomputing gzip size (24)...[2K[1Gcomputing gzip size (25)...[2K[1Gcomputing gzip size (26)...[2K[1Gcomputing gzip size (27)...[2K[1Gcomputing gzip size (28)...[2K[1Gcomputing gzip size (29)...[2K[1Gcomputing gzip size (30)...[2K[1Gcomputing gzip size (31)...[2K[1Gcomputing gzip size (32)...[2K[1G[2mlib/[22m[35mfrontend/style/side-panel.css                          [39m[1m[2m1.65 kB[22m[1m[22m[2m │ gzip: 0.55 kB[22m
+[2mlib/[22m[35mfrontend/style/application-shell.css                   [39m[1m[2m5.22 kB[22m[1m[22m[2m │ gzip: 1.19 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-output.js         [39m[1m[2m0.16 kB[22m[1m[22m[2m │ gzip: 0.16 kB[22m[2m │ map:  0.50 kB[22m
+[2mlib/[22m[36mfrontendPreload/index.js                               [39m[1m[2m0.20 kB[22m[1m[22m[2m │ gzip: 0.18 kB[22m[2m │ map:  0.09 kB[22m
+[2mlib/[22m[36mbackend/index.js                                       [39m[1m[2m0.20 kB[22m[1m[22m[2m │ gzip: 0.18 kB[22m[2m │ map:  0.09 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-scm.js            [39m[1m[2m0.23 kB[22m[1m[22m[2m │ gzip: 0.20 kB[22m[2m │ map:  0.37 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-window.js         [39m[1m[2m0.24 kB[22m[1m[22m[2m │ gzip: 0.20 kB[22m[2m │ map:  0.42 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-problems.js       [39m[1m[2m0.26 kB[22m[1m[22m[2m │ gzip: 0.21 kB[22m[2m │ map:  0.40 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-outline.js        [39m[1m[2m0.26 kB[22m[1m[22m[2m │ gzip: 0.21 kB[22m[2m │ map:  0.58 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-plugin.js         [39m[1m[2m0.28 kB[22m[1m[22m[2m │ gzip: 0.22 kB[22m[2m │ map:  0.45 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-tasks.js          [39m[1m[2m0.35 kB[22m[1m[22m[2m │ gzip: 0.24 kB[22m[2m │ map:  0.58 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-hierarchy.js      [39m[1m[2m0.37 kB[22m[1m[22m[2m │ gzip: 0.23 kB[22m[2m │ map:  0.61 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-debug.js          [39m[1m[2m0.38 kB[22m[1m[22m[2m │ gzip: 0.24 kB[22m[2m │ map:  0.63 kB[22m
+[2mlib/[22m[36mbackend/module.js                                      [39m[1m[2m0.41 kB[22m[1m[22m[2m │ gzip: 0.29 kB[22m[2m │ map:  0.76 kB[22m
+[2mlib/[22m[36mfrontendPreload/module.js                              [39m[1m[2m0.44 kB[22m[1m[22m[2m │ gzip: 0.29 kB[22m[2m │ map:  0.83 kB[22m
+[2mlib/[22m[36mfrontend/commands/index.js                             [39m[1m[2m0.50 kB[22m[1m[22m[2m │ gzip: 0.28 kB[22m[2m │ map:  1.08 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-test.js           [39m[1m[2m0.55 kB[22m[1m[22m[2m │ gzip: 0.26 kB[22m[2m │ map:  0.93 kB[22m
+[2mlib/[22m[36mfrontend/commands/command-spy.js                       [39m[1m[2m0.63 kB[22m[1m[22m[2m │ gzip: 0.43 kB[22m[2m │ map:  1.23 kB[22m
+[2mlib/[22m[36mfrontendPreload/ws-connection-source.js                [39m[1m[2m0.64 kB[22m[1m[22m[2m │ gzip: 0.38 kB[22m[2m │ map:  1.01 kB[22m
+[2mlib/[22m[36mfrontend/layout/frontend-application.js                [39m[1m[2m0.66 kB[22m[1m[22m[2m │ gzip: 0.43 kB[22m[2m │ map:  1.24 kB[22m
+[2mlib/[22m[36mfrontend/index.js                                      [39m[1m[2m0.75 kB[22m[1m[22m[2m │ gzip: 0.41 kB[22m[2m │ map:  1.79 kB[22m
+[2mlib/[22m[36mbackend/websocket-endpoint.js                          [39m[1m[2m0.97 kB[22m[1m[22m[2m │ gzip: 0.58 kB[22m[2m │ map:  2.35 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/filter-notebook.js       [39m[1m[2m1.00 kB[22m[1m[22m[2m │ gzip: 0.32 kB[22m[2m │ map:  1.69 kB[22m
+[2mlib/[22m[36mfrontend/search/search-in-workspace-factory.js         [39m[1m[2m1.20 kB[22m[1m[22m[2m │ gzip: 0.62 kB[22m[2m │ map:  2.34 kB[22m
+[2mlib/[22m[36mfrontend/layout/side-panel-handler.js                  [39m[1m[2m1.29 kB[22m[1m[22m[2m │ gzip: 0.64 kB[22m[2m │ map:  2.72 kB[22m
+[2mlib/[22m[36mfrontend/output/output-toolbar-contribution.js         [39m[1m[2m1.32 kB[22m[1m[22m[2m │ gzip: 0.57 kB[22m[2m │ map:  2.63 kB[22m
+[2mlib/[22m[36mfrontend/contribution-filters/index.js                 [39m[1m[2m1.35 kB[22m[1m[22m[2m │ gzip: 0.56 kB[22m[2m │ map:  3.19 kB[22m
+[2mlib/[22m[36mfrontend/layout/shell-init-contribution.js             [39m[1m[2m1.78 kB[22m[1m[22m[2m │ gzip: 0.71 kB[22m[2m │ map:  3.33 kB[22m
+[2mlib/[22m[36mfrontend/navigator/navigator-widget-factory.js         [39m[1m[2m1.92 kB[22m[1m[22m[2m │ gzip: 0.87 kB[22m[2m │ map:  4.63 kB[22m
+[2mlib/[22m[36mfrontend/layout/application-shell.js                   [39m[1m[2m3.28 kB[22m[1m[22m[2m │ gzip: 1.37 kB[22m[2m │ map:  6.52 kB[22m
+[2mlib/[22m[36mfrontend/commands/register-command-contribution.js     [39m[1m[2m3.38 kB[22m[1m[22m[2m │ gzip: 1.08 kB[22m[2m │ map:  7.41 kB[22m
+[2mlib/[22m[36mfrontend/commands/unregister-commands-contribution.js  [39m[1m[2m6.87 kB[22m[1m[22m[2m │ gzip: 1.57 kB[22m[2m │ map: 14.46 kB[22m
+[32m✓ built in 448ms[39m
+
+> @flexbe/custom-ui@0.0.0 dts
+> tsc --emitDeclarationOnly --declaration --outDir lib
+

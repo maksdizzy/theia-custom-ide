@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=require("@theia/test/lib/browser/view/test-output-view-contribution"),i=require("@theia/test/lib/browser/view/test-result-view-contribution"),e=require("@theia/test/lib/browser/view/test-run-view-contribution"),n=require("@theia/test/lib/browser/view/test-view-contribution"),o=[n.TestViewContribution,e.TestRunViewContribution,i.TestResultViewContribution,t.TestOutputViewContribution];exports.filterContributions=o;
+//# sourceMappingURL=filter-test.js.map

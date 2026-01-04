@@ -1,0 +1,29 @@
+{
+    "name": "@flexbe/theia-api",
+    "version": "0.0.0",
+    "files": [
+        "lib",
+        "src"
+    ],
+    "dependencies": {
+        "@theia/core": "1.62.2",
+        "@theia/process": "1.62.2",
+        "@theia/terminal": "1.62.2",
+        "@theia/output": "1.62.2"
+    },
+    "devDependencies": {
+        "typescript": "^5.8.3"
+    },
+    "scripts": {
+        "clean": "rm -rf lib node_modules",
+        "build": "tsc",
+        "watch": "tsc -w",
+        "dev": "npm run watch"
+    },
+    "theiaExtensions": [
+        {
+            "frontend": "lib/browser/module.front",
+            "backend": "lib/node/module.node"
+        }
+    ]
+}
