@@ -40,11 +40,11 @@ export function initApplicationShell({ bind, rebind }: { bind: interfaces.Bind; 
 export class ApplicationShell extends TheiaApplicationShell {
     @postConstruct()
     protected init(): void {
-        // Disable right / bottom panels (for dragging)
+        // Configure panel sizes
         this.options = {
             leftPanel: {
                 ...this.options.leftPanel,
-                initialSizeRatio: 0.25, // 25% of window width
+                initialSizeRatio: 0.2, // 20% of window width for file explorer
             },
             bottomPanel: {
                 ...this.options.bottomPanel,
@@ -56,7 +56,7 @@ export class ApplicationShell extends TheiaApplicationShell {
                 ...this.options.rightPanel,
                 emptySize: 0,
                 expandThreshold: 0,
-                initialSizeRatio: 0,
+                initialSizeRatio: 0.25, // 25% of window width for AI Panel
             },
         };
 
@@ -64,12 +64,9 @@ export class ApplicationShell extends TheiaApplicationShell {
         this.restrictDragging();
     }
 
-    // NOTE: Right now is left :D
+    // Allow right panel widgets to be placed on the right (for AI Panel)
     getInsertionOptions(options?: TheiaApplicationShell.WidgetOptions) {
-        if (options?.area === 'right') {
-            options.area = 'left';
-        }
-
+        // Keep widgets in their designated areas (don't redirect right to left)
         return super.getInsertionOptions(options);
     }
 

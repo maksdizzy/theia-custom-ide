@@ -1,0 +1,441 @@
+// Premium Design System for Flexbe IDE
+// ==========================================
+// This file contains premium design enhancements:
+// - Shadows for depth
+// - Improved spacing
+// - Smooth animations
+// - Better visual hierarchy
+
+// ============================================
+// Design Tokens
+// ============================================
+body.theia-light {
+    // Shadow System
+    --flexbe-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --flexbe-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --flexbe-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    --flexbe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --flexbe-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+    // Inner shadow for inset effects
+    --flexbe-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+
+    // Transition timing
+    --flexbe-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --flexbe-transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --flexbe-transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Spacing Scale
+    --flexbe-space-1: 4px;
+    --flexbe-space-2: 8px;
+    --flexbe-space-3: 12px;
+    --flexbe-space-4: 16px;
+    --flexbe-space-5: 20px;
+    --flexbe-space-6: 24px;
+    --flexbe-space-8: 32px;
+}
+
+// ============================================
+// Panel Shadows & Depth
+// ============================================
+body.theia-light {
+    // Left sidebar - subtle shadow on right edge
+    #theia-left-content-panel {
+        box-shadow: var(--flexbe-shadow-md);
+        z-index: 10;
+    }
+
+    // Right sidebar - subtle shadow on left edge
+    #theia-right-content-panel {
+        box-shadow: var(--flexbe-shadow-md);
+        z-index: 10;
+    }
+
+    // Main content area - elevated appearance
+    #theia-main-content-panel {
+        .lm-Widget.lm-DockPanel-widget {
+            box-shadow: var(--flexbe-shadow-sm);
+        }
+    }
+
+    // Bottom panel - shadow on top
+    #theia-bottom-content-panel {
+        box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.06);
+        z-index: 10;
+    }
+}
+
+// ============================================
+// Bottom Panel Close Button
+// ============================================
+body.theia-light {
+    #theia-bottom-content-panel {
+        .lm-TabBar-toolbar {
+            display: flex;
+            align-items: center;
+            gap: var(--flexbe-space-2);
+
+            // Ensure close button is visible
+            .theia-TabBar-toolbar-item {
+                display: flex !important;
+            }
+        }
+
+        // Add close button styling
+        .theia-tabBar-toolbar-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            transition: var(--flexbe-transition-fast);
+
+            &:hover {
+                background: var(--flexbe-hover);
+            }
+        }
+    }
+}
+
+// ============================================
+// Improved Spacing
+// ============================================
+body.theia-light {
+    // Panel headers with better padding
+    .theia-sidepanel-toolbar {
+        padding: var(--flexbe-space-3) var(--flexbe-space-4);
+
+        .theia-sidepanel-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--flexbe-text-secondary);
+        }
+    }
+
+    // Tree container padding
+    .theia-TreeContainer {
+        padding: var(--flexbe-space-2) var(--flexbe-space-3);
+    }
+
+    // Tab bar content padding
+    .lm-TabBar.theia-app-sides .lm-TabBar-content {
+        padding: var(--flexbe-space-2) var(--flexbe-space-3);
+    }
+}
+
+// ============================================
+// Hover Animations
+// ============================================
+body.theia-light {
+    // Interactive elements base transition
+    .theia-TreeNode,
+    .lm-TabBar-tab,
+    .theia-sidepanel-toolbar .action-label,
+    button,
+    .theia-select-component {
+        transition: var(--flexbe-transition-fast);
+    }
+
+    // Tree node hover with subtle lift
+    .theia-TreeContainer .theia-TreeNode {
+        &:hover {
+            background: var(--flexbe-hover);
+            transform: translateX(2px);
+        }
+
+        &.theia-mod-selected {
+            background: var(--flexbe-active);
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    // Tab hover effects
+    .lm-TabBar.theia-app-sides .lm-TabBar-tab {
+        &:hover {
+            background: var(--flexbe-hover);
+            transform: translateY(-1px);
+        }
+
+        &.lm-mod-current {
+            transform: none;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    // Button hover effects
+    .theia-button,
+    button.theia-button {
+        &:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: var(--flexbe-shadow-sm);
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+    }
+}
+
+// ============================================
+// Status Bar Redesign
+// ============================================
+body.theia-light #theia-statusBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 28px;
+    padding: 0 var(--flexbe-space-4);
+    background: var(--flexbe-sidebar-bg) !important;
+    border-top: 1px solid var(--flexbe-border);
+    font-size: 12px;
+
+    // Status bar sections
+    .area {
+        display: flex;
+        align-items: center;
+        gap: var(--flexbe-space-3);
+    }
+
+    // Individual elements
+    .element {
+        display: flex;
+        align-items: center;
+        gap: var(--flexbe-space-1);
+        padding: 2px var(--flexbe-space-2);
+        border-radius: 4px;
+        color: var(--flexbe-text-secondary);
+        transition: var(--flexbe-transition-fast);
+
+        &:hover {
+            background: var(--flexbe-hover);
+            color: var(--flexbe-text-primary);
+        }
+
+        .codicon {
+            font-size: 14px;
+        }
+    }
+
+    // Workspace indicator
+    .element:first-child {
+        font-weight: 500;
+    }
+
+    // Connection status with color indicator
+    .element[title*="Connected"] {
+        &::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            margin-right: var(--flexbe-space-1);
+        }
+    }
+
+    // Notification badge
+    .element .notification-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        background: var(--flexbe-accent);
+        color: white;
+        border-radius: 8px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+}
+
+// ============================================
+// Empty State Improvements
+// ============================================
+body.theia-light {
+    .theia-navigator-empty-container,
+    .theia-sidepanel-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: var(--flexbe-space-8);
+        text-align: center;
+
+        .theia-sidepanel-empty-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+            border-radius: 50%;
+            margin-bottom: var(--flexbe-space-4);
+
+            .codicon {
+                font-size: 28px;
+                color: var(--flexbe-accent);
+            }
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--flexbe-text-primary);
+            margin: 0 0 var(--flexbe-space-2) 0;
+        }
+
+        p {
+            font-size: 13px;
+            color: var(--flexbe-text-secondary);
+            margin: 0;
+            max-width: 240px;
+            line-height: 1.5;
+        }
+    }
+}
+
+// ============================================
+// Input & Form Elements
+// ============================================
+body.theia-light {
+    // Text inputs
+    .theia-input,
+    input[type="text"],
+    input[type="search"] {
+        border: 1px solid var(--flexbe-border);
+        border-radius: 8px;
+        padding: var(--flexbe-space-2) var(--flexbe-space-3);
+        transition: var(--flexbe-transition-fast);
+
+        &:focus {
+            outline: none;
+            border-color: var(--flexbe-accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        &::placeholder {
+            color: var(--flexbe-text-secondary);
+        }
+    }
+
+    // Select/Dropdown
+    .theia-select-component {
+        border: 1px solid var(--flexbe-border);
+        border-radius: 8px;
+        padding: var(--flexbe-space-2) var(--flexbe-space-3);
+        transition: var(--flexbe-transition-fast);
+
+        &:hover {
+            border-color: var(--flexbe-accent);
+        }
+
+        &:focus-within {
+            border-color: var(--flexbe-accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+    }
+
+    // Primary button style
+    .theia-button.main,
+    button.theia-button.main {
+        background: var(--flexbe-accent);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: var(--flexbe-space-2) var(--flexbe-space-4);
+        font-weight: 500;
+
+        &:hover:not(:disabled) {
+            background: var(--flexbe-accent-hover);
+        }
+    }
+}
+
+// ============================================
+// Scrollbar Styling
+// ============================================
+body.theia-light {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.3);
+        border-radius: 4px;
+
+        &:hover {
+            background: rgba(100, 116, 139, 0.5);
+        }
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+}
+
+// ============================================
+// Panel Dividers/Separators
+// ============================================
+body.theia-light {
+    // Horizontal separator between panels
+    .lm-SplitPanel-handle {
+        background: transparent !important;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--flexbe-border);
+            transition: var(--flexbe-transition-fast);
+        }
+
+        &:hover::after {
+            background: var(--flexbe-accent);
+        }
+    }
+
+    .lm-SplitPanel-handle.lm-mod-horizontal::after {
+        width: 4px;
+        height: 40px;
+        border-radius: 2px;
+    }
+
+    .lm-SplitPanel-handle.lm-mod-vertical::after {
+        width: 40px;
+        height: 4px;
+        border-radius: 2px;
+    }
+}
+
+// ============================================
+// Focus Visible States (Accessibility)
+// ============================================
+body.theia-light {
+    *:focus-visible {
+        outline: 2px solid var(--flexbe-accent);
+        outline-offset: 2px;
+    }
+
+    // Remove default outline for mouse users
+    *:focus:not(:focus-visible) {
+        outline: none;
+    }
+}

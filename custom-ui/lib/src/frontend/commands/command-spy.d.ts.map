@@ -1,1 +1,0 @@
-{"version":3,"file":"command-spy.d.ts","sourceRoot":"","sources":["../../../../src/frontend/commands/command-spy.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,eAAe,EAAE,KAAK,mBAAmB,EAAE,MAAM,gCAAgC,CAAC;AAG3F,qBACa,sBAAuB,YAAW,mBAAmB;IAC9D,gBAAgB,CAAC,QAAQ,EAAE,eAAe,GAAG,IAAI;CAepD"}
