@@ -1,0 +1,170 @@
+// Flexbe Light Theme for Non-Technical Users
+// Design Reference: claudedocs/DESIGN_SPEC_NON_TECHNICAL_UI.md
+
+// Import premium design enhancements
+@import './premium-design.less';
+
+body.theia-light {
+    // Core Flexbe colors
+    --flexbe-background: #ffffff;
+    --flexbe-sidebar-bg: #f8fafc;
+    --flexbe-activity-bar-bg: #f1f5f9;
+    --flexbe-accent: #3b82f6;
+    --flexbe-accent-hover: #2563eb;
+    --flexbe-text-primary: #334155;
+    --flexbe-text-secondary: #64748b;
+    --flexbe-border: #e2e8f0;
+    --flexbe-hover: #f1f5f9;
+    --flexbe-active: #e2e8f0;
+    --flexbe-success: #22c55e;
+    --flexbe-warning: #f59e0b;
+    --flexbe-error: #ef4444;
+
+    // Override Theia core variables
+    --theia-editor-background: var(--flexbe-background);
+    --theia-sideBar-background: var(--flexbe-sidebar-bg);
+    --theia-activityBar-background: var(--flexbe-activity-bar-bg);
+    --theia-panel-background: var(--flexbe-background);
+    --theia-statusBar-background: var(--flexbe-sidebar-bg);
+    --theia-statusBar-foreground: var(--flexbe-text-secondary);
+    --theia-tab-activeBackground: var(--flexbe-background);
+    --theia-tab-inactiveBackground: var(--flexbe-sidebar-bg);
+    --theia-tab-activeForeground: var(--flexbe-text-primary);
+    --theia-tab-inactiveForeground: var(--flexbe-text-secondary);
+    --theia-focusBorder: var(--flexbe-accent);
+    --theia-foreground: var(--flexbe-text-primary);
+    --theia-descriptionForeground: var(--flexbe-text-secondary);
+    --theia-widget-border: var(--flexbe-border);
+    --theia-list-hoverBackground: var(--flexbe-hover);
+    --theia-list-activeSelectionBackground: var(--flexbe-accent);
+    --theia-list-activeSelectionForeground: #ffffff;
+    --theia-list-inactiveSelectionBackground: var(--flexbe-active);
+    --theia-input-background: var(--flexbe-background);
+    --theia-input-border: var(--flexbe-border);
+    --theia-input-foreground: var(--flexbe-text-primary);
+    --theia-dropdown-background: var(--flexbe-background);
+    --theia-dropdown-border: var(--flexbe-border);
+    --theia-button-background: var(--flexbe-accent);
+    --theia-button-foreground: #ffffff;
+    --theia-button-hoverBackground: var(--flexbe-accent-hover);
+    --theia-scrollbarSlider-background: rgba(100, 116, 139, 0.3);
+    --theia-scrollbarSlider-hoverBackground: rgba(100, 116, 139, 0.5);
+    --theia-scrollbarSlider-activeBackground: rgba(100, 116, 139, 0.7);
+
+    // Remove dark theme gradient - use clean white
+    --theia-island-background: var(--flexbe-background);
+
+    // Title bar and menu
+    --theia-titleBar-activeBackground: var(--flexbe-sidebar-bg);
+    --theia-titleBar-inactiveBackground: var(--flexbe-sidebar-bg);
+    --theia-menu-background: var(--flexbe-background);
+    --theia-menu-foreground: var(--flexbe-text-primary);
+
+    // Editor specific
+    --theia-editorGroupHeader-tabsBackground: var(--flexbe-sidebar-bg);
+    --theia-editorWidget-background: var(--flexbe-background);
+    --theia-editorWidget-border: var(--flexbe-border);
+
+    // Tree and lists
+    --theia-tree-inactiveIndentGuidesStroke: var(--flexbe-border);
+    --theia-tree-indentGuidesStroke: var(--flexbe-border);
+
+    // Sidebar tabs
+    --theia-tab-hoverBackground: var(--flexbe-hover);
+}
+
+// Monaco editor overrides for light theme
+body.theia-light {
+    .monaco-editor,
+    .monaco-diff-editor,
+    .monaco-component {
+        --vscode-editor-background: var(--flexbe-background) !important;
+        --vscode-editorGutter-background: var(--flexbe-background) !important;
+    }
+}
+
+// Active tab indicator (blue line on top)
+body.theia-light {
+    #theia-main-content-panel .lm-TabBar-tab.lm-mod-current {
+        border-top: 2px solid var(--flexbe-accent) !important;
+        background: var(--flexbe-background) !important;
+    }
+
+    #theia-main-content-panel .lm-TabBar-tab:not(.lm-mod-current) {
+        border-top: 2px solid transparent;
+    }
+}
+
+// Clean sidebar appearance
+body.theia-light {
+    #theia-left-content-panel {
+        background: var(--flexbe-sidebar-bg);
+        border-right: 1px solid var(--flexbe-border);
+    }
+
+    #theia-right-content-panel {
+        background: var(--flexbe-sidebar-bg);
+        border-left: 1px solid var(--flexbe-border);
+    }
+
+    // Activity bar tabs
+    .lm-TabBar.theia-app-sides .lm-TabBar-tab {
+        background: transparent;
+
+        &:hover {
+            background: var(--flexbe-hover);
+        }
+
+        &.lm-mod-current {
+            background: var(--flexbe-active);
+        }
+    }
+
+    // Panel headers
+    .theia-sidepanel-toolbar {
+        background: var(--flexbe-sidebar-bg);
+        border-bottom: 1px solid var(--flexbe-border);
+    }
+
+    // Tree items
+    .theia-TreeContainer .theia-TreeNode:hover {
+        background: var(--flexbe-hover);
+    }
+
+    .theia-TreeContainer .theia-TreeNode.theia-mod-selected {
+        background: var(--flexbe-active);
+    }
+}
+
+// Status bar styling
+body.theia-light #theia-statusBar {
+    background: var(--flexbe-sidebar-bg) !important;
+    border-top: 1px solid var(--flexbe-border);
+    color: var(--flexbe-text-secondary);
+
+    .element {
+        color: var(--flexbe-text-secondary);
+    }
+}
+
+// Hide menu bar completely
+body.theia-light #theia-top-panel .lm-Widget.lm-MenuBar {
+    display: none !important;
+}
+
+// Clean borders for panels
+body.theia-light {
+    #theia-main-content-panel,
+    #theia-bottom-content-panel {
+        border-radius: 0;
+    }
+
+    // Remove island styling for light theme
+    #theia-app-shell {
+        background: var(--flexbe-sidebar-bg);
+    }
+
+    #theia-main-ide-panel {
+        border: none;
+    }
+}
