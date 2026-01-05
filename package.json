@@ -10,7 +10,10 @@
     "watch": "turbo run watch",
     "postinstall": "theia check:theia-version",
     "clean": "turbo run clean && rimraf node_modules",
-    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false && node scripts/patch-ai-plugins.js"
+    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false && node scripts/patch-ai-plugins.js",
+    "full-start": "./scripts/full-start.sh",
+    "quick-start": "./scripts/quick-start.sh",
+    "rebuild": "./scripts/rebuild-all.sh"
   },
   "workspaces": [
     "browser-app",

@@ -178,7 +178,7 @@ export class ApplicationShell extends TheiaApplicationShell {
 
         const leftRightSplitLayout = this.createSplitLayout(
             [this.leftPanelHandler.container, panelForBottomArea, this.rightPanelHandler.container],
-            [0, 1, 0],
+            [0, 1, 0.25], // Right panel gets 25% width for AI Panel
             { orientation: 'horizontal', spacing: SPACING }
         );
         const mainIDEPanel = new TheiaSplitPanel({ layout: leftRightSplitLayout });
