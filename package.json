@@ -10,7 +10,7 @@
     "watch": "turbo run watch",
     "postinstall": "theia check:theia-version",
     "clean": "turbo run clean && rimraf node_modules",
-    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false"
+    "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false && node scripts/patch-ai-plugins.js"
   },
   "workspaces": [
     "browser-app",
@@ -27,15 +27,19 @@
     "vscode.html": "https://open-vsx.org/api/vscode/html/1.95.3/file/vscode.html-1.95.3.vsix",
     "vscode.markdown": "https://open-vsx.org/api/vscode/markdown/1.95.3/file/vscode.markdown-1.95.3.vsix",
     "zhuangtongfa.material-theme": "https://open-vsx.org/api/zhuangtongfa/material-theme/3.19.0/file/zhuangtongfa.material-theme-3.19.0.vsix",
-    "PKief.material-icon-theme": "https://open-vsx.org/api/PKief/material-icon-theme/5.23.0/file/PKief.material-icon-theme-5.23.0.vsix"
+    "PKief.material-icon-theme": "https://open-vsx.org/api/PKief/material-icon-theme/5.23.0/file/PKief.material-icon-theme-5.23.0.vsix",
+    "Anthropic.claude-code": "https://open-vsx.org/api/Anthropic/claude-code/linux-x64/2.0.75/file/Anthropic.claude-code-2.0.75@linux-x64.vsix",
+    "Google.geminicodeassist": "https://open-vsx.org/api/Google/geminicodeassist/2.64.0/file/Google.geminicodeassist-2.64.0.vsix",
+    "openai.chatgpt": "https://open-vsx.org/api/openai/chatgpt/0.5.56/file/openai.chatgpt-0.5.56.vsix",
+    "empathy-consulting.composio-skills": "https://github.com/maksdizzy/composio-skills-extension/releases/download/poc-release-0.01/composio-skills-0.1.0.vsix"
   },
   "devDependencies": {
     "@flexbe/eslint-config": "^1.0.11",
-    "rimraf": "6.0.1",
-    "turbo": "^2.5.4",
-    "typescript": "^5.8.3",
+    "@types/yargs": "17",
     "copy-webpack-plugin": "13.0.0",
-    "yargs": "17",
-    "@types/yargs": "17"
+    "rimraf": "6.0.1",
+    "turbo": "^2.7.2",
+    "typescript": "^5.8.3",
+    "yargs": "17"
   }
 }

@@ -1,1 +1,0 @@
-{"version":3,"file":"filter-scm.js","sources":["../../../src/frontend/contribution-filters/filter-scm.ts"],"sourcesContent":["import { ScmContribution } from '@theia/scm/lib/browser/scm-contribution';\n\nexport const filterContributions = [\n    ScmContribution,\n];\n"],"names":["filterContributions","ScmContribution"],"mappings":"2IAEaA,EAAsB,CAC/BC,EAAAA,eACJ"}

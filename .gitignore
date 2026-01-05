@@ -1,7 +1,5 @@
 # Dependencies
 node_modules
-package-lock.json
-yarn.lock
 
 # Build artifacts
 browser-app/lib/
@@ -9,11 +7,14 @@ browser-app/src-gen/
 browser-app/gen-webpack*.js
 custom-ui/lib/
 
-# Turbo cache
-.turbo/
+# Turbo cache (all workspaces)
+**/.turbo/
 
 # Serena (AI agent memory)
 .serena/
+
+# Playwright MCP cache
+.playwright-mcp/
 
 # Workspace (user files)
 workspace/
@@ -24,6 +25,12 @@ plugins/*/extension/package-lock.json
 
 # Plugin build artifacts (keep dist for Material Icons)
 # plugins/*/extension/dist/
+
+# AI plugins (downloaded via theiaPlugins, patched by scripts/patch-ai-plugins.js)
+plugins/Anthropic.claude-code/
+plugins/Google.geminicodeassist/
+plugins/openai.chatgpt/
+plugins/empathy-consulting.composio-skills/
 
 # Logs
 *.log

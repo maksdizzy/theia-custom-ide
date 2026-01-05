@@ -44,7 +44,7 @@
         "preferences": {
           "toolbar.showToolbar": false,
           "breadcrumbs.enabled": false,
-          "window.menuBarVisibility": "compact",
+          "window.menuBarVisibility": "hidden",
           "files.enableTrash": true,
           "security.workspace.trust.enabled": false,
           "application.confirmExit": "always",
@@ -124,7 +124,7 @@
           "workbench.silentNotifications": true,
           "workbench.tab.maximize": false,
           "workbench.tab.shrinkToFit.enabled": false,
-          "workbench.colorTheme": "One Dark Pro Night Flat",
+          "workbench.colorTheme": "Default Light Modern",
           "workbench.iconTheme": "material-icon-theme",
           "workbench.tree.indent": 13,
           "workbench.tree.renderIndentGuides": "none",

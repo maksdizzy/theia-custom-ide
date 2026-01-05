@@ -1,0 +1,270 @@
+// Integrations Panel Styles for Flexbe IDE
+// Design Reference: claudedocs/DESIGN_SPEC_NON_TECHNICAL_UI.md
+
+.flexbe-integrations-panel {
+    background: var(--flexbe-sidebar-bg, #f8fafc);
+    height: 100%;
+}
+
+.integrations-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+// Search bar
+.integrations-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--flexbe-background, #ffffff);
+    border: 1px solid var(--flexbe-border, #e2e8f0);
+    border-radius: 8px;
+    margin-bottom: 16px;
+
+    .codicon {
+        color: var(--flexbe-text-secondary, #64748b);
+        font-size: 14px;
+    }
+
+    input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        color: var(--flexbe-text-primary, #334155);
+        font-size: 13px;
+        outline: none;
+
+        &::placeholder {
+            color: var(--flexbe-text-secondary, #64748b);
+        }
+    }
+}
+
+// Section styling
+.integrations-section {
+    margin-bottom: 20px;
+}
+
+.integrations-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.integrations-section-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--flexbe-text-secondary, #64748b);
+    margin: 0;
+
+    .codicon {
+        font-size: 12px;
+    }
+
+    .status-connected {
+        color: var(--flexbe-success, #22c55e);
+    }
+}
+
+.integrations-count {
+    background: var(--flexbe-active, #e2e8f0);
+    color: var(--flexbe-text-secondary, #64748b);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+// Integration list
+.integrations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+// Integration item
+.integration-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--flexbe-background, #ffffff);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+
+    &:hover {
+        border-color: var(--flexbe-border, #e2e8f0);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    &.connected {
+        background: var(--flexbe-background, #ffffff);
+    }
+}
+
+.integration-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--flexbe-hover, #f1f5f9);
+    border-radius: 8px;
+    flex-shrink: 0;
+
+    .codicon {
+        font-size: 18px;
+        color: var(--flexbe-accent, #3b82f6);
+    }
+}
+
+.integration-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.integration-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--flexbe-text-primary, #334155);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.integration-description {
+    font-size: 11px;
+    color: var(--flexbe-text-secondary, #64748b);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.integration-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &.connected {
+        background: var(--flexbe-success, #22c55e);
+        box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+    }
+}
+
+.integration-action {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &.connect {
+        background: var(--flexbe-accent, #3b82f6);
+        color: white;
+        border: none;
+
+        &:hover {
+            background: var(--flexbe-accent-hover, #2563eb);
+        }
+    }
+
+    &.disconnect {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        background: transparent;
+        color: var(--flexbe-text-secondary, #64748b);
+        border: 1px solid var(--flexbe-border, #e2e8f0);
+        border-radius: 6px;
+
+        &:hover {
+            background: var(--flexbe-error, #ef4444);
+            color: white;
+            border-color: var(--flexbe-error, #ef4444);
+        }
+
+        .codicon {
+            font-size: 14px;
+        }
+    }
+}
+
+// Category styling
+.integrations-category {
+    margin-bottom: 4px;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: var(--flexbe-background, #ffffff);
+    }
+
+    .category-chevron {
+        font-size: 10px;
+        color: var(--flexbe-text-secondary, #64748b);
+        transition: transform 0.2s ease;
+    }
+
+    .category-icon {
+        font-size: 14px;
+        color: var(--flexbe-accent, #3b82f6);
+    }
+
+    .category-name {
+        flex: 1;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--flexbe-text-primary, #334155);
+    }
+
+    .category-count {
+        font-size: 11px;
+        color: var(--flexbe-text-secondary, #64748b);
+        background: var(--flexbe-active, #e2e8f0);
+        padding: 2px 6px;
+        border-radius: 8px;
+    }
+}
+
+.category-integrations {
+    padding-left: 12px;
+    margin-top: 4px;
+
+    .integration-item {
+        margin-left: 16px;
+    }
+}
