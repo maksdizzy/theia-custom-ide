@@ -4,14 +4,16 @@ import { Panel, SidePanel, SidePanelHandler as TheiaSidePanelHandler, type SideT
 import { injectable } from '@theia/core/shared/inversify';
 
 /**
- * Move side panel to top
+ * Custom side panel handler with toggle behavior for right panel only.
+ * Left panel keeps standard Theia behavior (horizontal tabs, no toggle).
+ * Right panel gets vertical icon bar with click-to-toggle functionality.
  */
 @injectable()
 export class SidePanelHandler extends TheiaSidePanelHandler {
     protected override createSideBar(): SideTabBar {
         const sideBar = super.createSideBar();
 
-        // Dont allow to move icons
+        // Don't allow to move icons
         sideBar.tabsMovable = false;
 
         return sideBar;
@@ -20,10 +22,20 @@ export class SidePanelHandler extends TheiaSidePanelHandler {
     protected override createContainer(): Panel {
         const container = super.createContainer();
 
-        // Add class for custom styles
-        container.addClass('theia-custom-icon-bar');
+        // Only add toggle behavior for RIGHT panel (AI agents)
+        if (this.side === 'right') {
+            container.addClass('theia-custom-icon-bar');
+            this.setupToggleBehavior();
+        }
 
-        // Add toggle logic
+        return container;
+    }
+
+    /**
+     * Setup click-to-toggle behavior for right panel.
+     * Click on active icon collapses panel, click again expands it.
+     */
+    private setupToggleBehavior(): void {
         this.tabBar.node.addEventListener('click', (event) => {
             const tab = (event.target as HTMLElement).closest('.lm-TabBar-tab');
             if (!tab) return;
@@ -33,22 +45,20 @@ export class SidePanelHandler extends TheiaSidePanelHandler {
 
             if (!title) return;
 
-            // If clicked on already active tab
+            // Toggle only on active tab click
             if (title === this.tabBar.currentTitle) {
-                // Toggle panel visibility
                 if (this.state.expansion === SidePanel.ExpansionState.expanded) {
                     // Collapse panel
                     super.collapse();
                 } else {
-                    // Expand panel
-                    this.refresh();
+                    // Expand panel - use expand() to properly set currentTitle
+                    // This triggers onCurrentTabChanged -> refresh() -> CSS class update
+                    this.expand(title.owner.id);
                 }
                 event.stopPropagation();
                 event.preventDefault();
             }
             // Otherwise: click on inactive tab - base class handles activation
         });
-
-        return container;
     }
 }

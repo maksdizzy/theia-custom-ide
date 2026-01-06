@@ -27,8 +27,9 @@ npm run quick-start
 **Полный запуск с проверками:**
 - Проверяет, занят ли порт 4000
 - Проверяет наличие зависимостей
-- Проверяет, собраны ли custom-ui и browser-app
-- Автоматически пересобирает, если нужно
+- Проверяет, собраны ли custom-ui (`lib/backend` + `lib/frontend`)
+- Проверяет, собран ли browser-app (`lib/backend/main.js` + `lib/frontend`)
+- Автоматически пересобирает, если нужно (использует `find` для точной проверки)
 - Запускает IDE на http://localhost:4000
 
 ```bash
@@ -180,13 +181,12 @@ npm run quick-start
 ### Ошибка: "Module not found @flexbe/custom-ui"
 
 ```bash
-# custom-ui не собран
-cd custom-ui
-npm run build
-cd ..
+# Теперь full-start автоматически исправляет эту ошибку!
+npm run full-start
 
-# Затем пересобрать browser-app
-npm run rebuild
+# Или вручную:
+npm run build --workspace=custom-ui
+npm run build --workspace=browser-app
 ```
 
 ### Ошибка: node-gyp или Python
@@ -213,10 +213,12 @@ lsof -ti :4000 | xargs kill
 # Найти процессы Theia
 ps aux | grep "theia start"
 
-# Проверить, собран ли custom-ui
-ls -la custom-ui/lib
+# Проверить, собран ли custom-ui (нужны оба!)
+ls -la custom-ui/lib/backend
+ls -la custom-ui/lib/frontend
 
 # Проверить, собран ли browser-app
+ls -la browser-app/lib/backend/main.js
 ls -la browser-app/lib/frontend
 
 # Полная очистка и пересборка

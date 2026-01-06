@@ -1,5 +1,20 @@
 /* Вертикальная панель иконок AI агентов на правом краю экрана */
 
+/* Reset inherited .theia-app-sides horizontal styles for right panel */
+#theia-right-content-panel .lm-TabBar.theia-app-sides {
+    flex-direction: column;
+
+    .lm-TabBar-content {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+
+    .theia-tabBar-tab-row {
+        flex-direction: column;
+    }
+}
+
 #theia-right-content-panel {
     position: relative;
     display: flex;

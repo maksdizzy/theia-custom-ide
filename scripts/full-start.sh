@@ -68,44 +68,38 @@ else
     success "node_modules найдена"
 fi
 
-# Check if custom-ui is built
-if [ ! -d "custom-ui/lib" ]; then
-    warning "custom-ui не собран"
+# Check if custom-ui is built (need both frontend and backend)
+if [ ! -d "custom-ui/lib/backend" ] || [ ! -d "custom-ui/lib/frontend" ]; then
+    warning "custom-ui не полностью собран (отсутствует backend или frontend)"
     info "Сборка custom-ui..."
-    cd custom-ui
-    npm run build
-    cd ..
+    npm run build --workspace=custom-ui
     success "custom-ui собран"
 else
     # Check if source is newer than build
-    if [ "custom-ui/src" -nt "custom-ui/lib" ]; then
+    NEWEST_SRC=$(find custom-ui/src -type f -name "*.ts" -newer custom-ui/lib/backend 2>/dev/null | head -1)
+    if [ -n "$NEWEST_SRC" ]; then
         warning "Исходники custom-ui новее сборки"
         info "Пересборка custom-ui..."
-        cd custom-ui
-        npm run build
-        cd ..
+        npm run build --workspace=custom-ui
         success "custom-ui пересобран"
     else
         success "custom-ui актуален"
     fi
 fi
 
-# Check if browser-app is built
-if [ ! -d "browser-app/lib/frontend" ]; then
-    warning "browser-app не собран"
+# Check if browser-app is built (need both frontend and backend)
+if [ ! -d "browser-app/lib/frontend" ] || [ ! -f "browser-app/lib/backend/main.js" ]; then
+    warning "browser-app не полностью собран"
     info "Сборка browser-app (это может занять ~2 минуты)..."
-    cd browser-app
-    npm run build
-    cd ..
+    npm run build --workspace=browser-app
     success "browser-app собран"
 else
     # Check if custom-ui lib is newer than browser-app lib
-    if [ "custom-ui/lib" -nt "browser-app/lib" ]; then
+    CUSTOM_UI_NEWER=$(find custom-ui/lib -type f -newer browser-app/lib/backend/main.js 2>/dev/null | head -1)
+    if [ -n "$CUSTOM_UI_NEWER" ]; then
         warning "custom-ui новее browser-app"
         info "Пересборка browser-app..."
-        cd browser-app
-        npm run build
-        cd ..
+        npm run build --workspace=browser-app
         success "browser-app пересобран"
     else
         success "browser-app актуален"
