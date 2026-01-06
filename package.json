@@ -6,14 +6,17 @@
   },
   "scripts": {
     "build": "turbo run build",
-    "start": "turbo start",
+    "start": "./scripts/start.sh",
+    "start:quick": "./scripts/start.sh --quick",
+    "start:docker": "docker compose up -d",
     "watch": "turbo run watch",
     "postinstall": "theia check:theia-version",
     "clean": "turbo run clean && rimraf node_modules",
     "download:plugins": "theia download:plugins --rate-limit=15 --parallel=false && node scripts/patch-ai-plugins.js",
-    "full-start": "./scripts/full-start.sh",
-    "quick-start": "./scripts/quick-start.sh",
-    "rebuild": "./scripts/rebuild-all.sh"
+    "docker:build": "docker compose build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "docker:rebuild": "docker compose build --no-cache"
   },
   "workspaces": [
     "browser-app",

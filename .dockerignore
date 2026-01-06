@@ -1,0 +1,73 @@
+# =============================================================================
+# Docker Ignore - Flexbe IDE
+# =============================================================================
+# Optimizes build context by excluding unnecessary files
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Node modules (will be installed fresh in container)
+node_modules
+**/node_modules
+
+# Build artifacts (will be rebuilt in container)
+browser-app/lib/
+browser-app/src-gen/
+browser-app/gen-webpack*.js
+custom-ui/lib/
+
+# Turbo cache
+**/.turbo/
+
+# Plugins (will be downloaded fresh in container)
+plugins/
+
+# Workspace (runtime data, not needed for build)
+workspace/
+
+# Documentation
+claudedocs/
+*.md
+!README.md
+
+# IDE and editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# AI/Agent configs
+.serena/
+.playwright-mcp/
+
+# Development containers (avoid nesting)
+.devcontainer/
+.codesandbox/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test artifacts
+coverage/
+.nyc_output/
+
+# Environment files (use docker-compose env_file instead)
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Legacy/unused directories
+theia-api/

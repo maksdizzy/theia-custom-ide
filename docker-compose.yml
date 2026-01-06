@@ -1,0 +1,74 @@
+# =============================================================================
+# Flexbe IDE - Docker Compose Configuration
+# =============================================================================
+# Usage:
+#   docker compose up -d          # Start IDE (builds if needed)
+#   docker compose down           # Stop IDE
+#   docker compose logs -f        # View logs
+#   docker compose build          # Rebuild image
+#   docker compose build --no-cache  # Full rebuild
+# =============================================================================
+
+services:
+  flexbe-ide:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: flexbe-ide:latest
+    container_name: flexbe-ide
+
+    # Port mapping: host:container
+    ports:
+      - "${PORT:-4000}:${PORT:-4000}"
+
+    # Persistent storage for user workspace
+    volumes:
+      - workspace_data:/workspace
+      # Optional: mount local workspace for development
+      # - ./workspace:/workspace
+
+    # Environment configuration
+    environment:
+      - PORT=${PORT:-4000}
+      - HOST=0.0.0.0
+      - WORKSPACE_PATH=/workspace
+      - NODE_ENV=production
+
+    # Load additional env vars from .env file if exists
+    env_file:
+      - path: .env
+        required: false
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Health check (mirrors Dockerfile healthcheck)
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT:-4000}/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+    # Resource limits (optional, uncomment to enable)
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '2'
+    #       memory: 4G
+    #     reservations:
+    #       cpus: '0.5'
+    #       memory: 1G
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  workspace_data:
+    driver: local
+    # Optional: specify mount point
+    # driver_opts:
+    #   type: none
+    #   o: bind
+    #   device: /path/to/workspace
