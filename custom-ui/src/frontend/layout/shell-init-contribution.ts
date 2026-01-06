@@ -2,6 +2,7 @@ import {
     DefaultFrontendApplicationContribution
 } from '@theia/core/lib/browser';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
+import { CommandService } from '@theia/core/lib/common';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { FileNavigatorContribution } from '@theia/navigator/lib/browser/navigator-contribution';
 import { OutputContribution } from '@theia/output/lib/browser/output-contribution';
@@ -20,6 +21,9 @@ export class ShellInitContribution extends DefaultFrontendApplicationContributio
 
     @inject(FrontendApplicationStateService)
     protected readonly appStateService: FrontendApplicationStateService;
+
+    @inject(CommandService)
+    protected readonly commandService: CommandService;
 
     async onDidInitializeLayout(): Promise<void> {
         await this.openDefaultLayout();
@@ -55,5 +59,22 @@ export class ShellInitContribution extends DefaultFrontendApplicationContributio
             area: 'bottom',
             reveal: true,
         });
+
+        // Auto-open Claude Code in right sidebar after plugins are loaded
+        this.openClaudeCodePanel();
+    }
+
+    /**
+     * Opens Claude Code panel in right sidebar.
+     * Uses timeout to wait for plugin system to initialize.
+     */
+    protected openClaudeCodePanel(): void {
+        setTimeout(async () => {
+            try {
+                await this.commandService.executeCommand('claude.openInSideBar');
+            } catch {
+                // Plugin not available or command not found, ignore silently
+            }
+        }, 1500);
     }
 }

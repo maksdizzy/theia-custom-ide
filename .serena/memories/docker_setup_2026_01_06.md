@@ -56,6 +56,15 @@ Native modules (drivelist, keytar, node-pty) require:
 - node_modules are hoisted to root (not in browser-app/)
 - COPY in Dockerfile only needs root node_modules
 
+### Auto-open Claude Code Feature
+Added automatic opening of Claude Code panel in right sidebar at startup.
+
+**File**: `custom-ui/src/frontend/layout/shell-init-contribution.ts`
+- Added `CommandService` injection
+- Added `openClaudeCodePanel()` method  
+- Executes `claude.openInSideBar` command 1.5s after layout init
+- Verified: Log shows `Widget was activated: plugin-view:claudeVSCodeSidebar`
+
 ### Image Size
 - Final image: ~4.8GB (due to Theia's large dependency tree)
 - Could optimize with production-only deps, but complex
