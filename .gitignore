@@ -11,7 +11,7 @@ custom-ui/lib/
 **/.turbo/
 
 # Serena (AI agent memory)
-.serena/
+#.serena/
 
 # Playwright MCP cache
 .playwright-mcp/

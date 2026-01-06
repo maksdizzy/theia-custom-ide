@@ -1,0 +1,96 @@
+/* Вертикальная панель иконок AI агентов на правом краю экрана */
+
+#theia-right-content-panel {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    /* Когда панель скрыта - показываем только иконки */
+    &.theia-mod-collapsed {
+        min-width: var(--theia-private-sidebar-tab-width) !important;
+        max-width: var(--theia-private-sidebar-tab-width) !important;
+
+        /* Скрыть контент панели */
+        .theia-side-panel,
+        .theia-sidepanel-toolbar {
+            display: none !important;
+        }
+    }
+}
+
+/* Вертикальная панель иконок на правом краю */
+#theia-right-content-panel .lm-TabBar.theia-app-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--theia-private-sidebar-tab-width);
+    z-index: 100;
+
+    /* Вертикальная ориентация */
+    display: flex;
+    flex-direction: column;
+
+    /* Цвета из темы */
+    color: var(--theia-activityBar-inactiveForeground);
+    background: var(--theia-activityBar-background);
+
+    /* Размеры */
+    min-width: var(--theia-private-sidebar-tab-width);
+    max-width: var(--theia-private-sidebar-tab-width);
+    overflow: hidden;
+
+    /* Убрать стандартный отступ */
+    padding: 0;
+    margin: 0;
+}
+
+/* Иконки агентов */
+#theia-right-content-panel .lm-TabBar.theia-app-right .lm-TabBar-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Размеры */
+    min-height: var(--theia-private-sidebar-tab-height);
+    min-width: var(--theia-private-sidebar-tab-width);
+    padding: var(--theia-private-sidebar-tab-padding-top-and-bottom) 0;
+
+    /* Цвета */
+    background: var(--theia-activityBar-background);
+    color: var(--theia-activityBar-inactiveForeground);
+
+    /* Стиль */
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    transition: all 0.18s ease;
+}
+
+/* Иконка агента при наведении */
+#theia-right-content-panel .lm-TabBar.theia-app-right .lm-TabBar-tab:hover {
+    color: var(--theia-activityBar-foreground);
+    background-color: var(--theia-activityBar-activeBackground);
+}
+
+/* Активная иконка агента */
+#theia-right-content-panel .lm-TabBar.theia-app-right .lm-TabBar-tab.lm-mod-current {
+    color: var(--theia-activityBar-foreground);
+    background-color: var(--theia-activityBar-activeBackground);
+
+    /* Левый бордер как индикатор активности */
+    box-shadow: -2px 0 0 var(--theia-activityBar-activeBorder) inset;
+}
+
+/* Контент панели не должен перекрываться иконками */
+#theia-right-content-panel .theia-side-panel,
+#theia-right-content-panel .theia-sidepanel-toolbar {
+    margin-right: var(--theia-private-sidebar-tab-width);
+}
+
+/* Скрыть лейблы иконок (только иконки) */
+#theia-right-content-panel .lm-TabBar.theia-app-right .lm-TabBar-tabLabel {
+    display: none;
+}

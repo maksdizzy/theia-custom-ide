@@ -1,6 +1,6 @@
 import '@/frontend/style/side-panel.less';
 
-import { BoxLayout, BoxPanel, Panel, SidePanelHandler as TheiaSidePanelHandler, type SideTabBar } from '@theia/core/lib/browser';
+import { Panel, SidePanel, SidePanelHandler as TheiaSidePanelHandler, type SideTabBar } from '@theia/core/lib/browser';
 import { injectable } from '@theia/core/shared/inversify';
 
 /**
@@ -14,50 +14,41 @@ export class SidePanelHandler extends TheiaSidePanelHandler {
         // Dont allow to move icons
         sideBar.tabsMovable = false;
 
-        sideBar.removeClass('theia-app-left');
-        sideBar.removeClass('theia-app-right');
-        sideBar.addClass('theia-app-top');
-
         return sideBar;
     }
 
     protected override createContainer(): Panel {
-        this.tabBar.orientation = 'horizontal';
+        const container = super.createContainer();
 
-        const side = this.side;
+        // Add class for custom styles
+        container.addClass('theia-custom-icon-bar');
 
-        // flexbox column layout
-        const sidePanelLayout = new BoxLayout({ direction: 'top-to-bottom', spacing: 0 });
-        // widget:container > layout:sidePanelLayout > [widget:headerPanel, widget:toolBar, widget:dockPanel]
-        const container = new BoxPanel({ layout: sidePanelLayout });
-        // Panel with burger, tabs, settings icons
-        const headerPanel = new Panel();
+        // Add toggle logic
+        this.tabBar.node.addEventListener('click', (event) => {
+            const tab = (event.target as HTMLElement).closest('.lm-TabBar-tab');
+            if (!tab) return;
 
-        BoxPanel.setStretch(headerPanel, 0); // Fixed width for burger icon
-        sidePanelLayout.addWidget(headerPanel);
+            const index = Array.from(this.tabBar.node.querySelectorAll('.lm-TabBar-tab')).indexOf(tab);
+            const title = this.tabBar.titles[index];
 
-        // Widget title with buttons (like Files [new] [collapse])
-        BoxPanel.setStretch(this.toolBar, 0);
-        sidePanelLayout.addWidget(this.toolBar);
+            if (!title) return;
 
-        // Widget container (like Navigator, Search, ...)
-        BoxPanel.setStretch(this.dockPanel, 1); // Stretch dock panel
-        sidePanelLayout.addWidget(this.dockPanel);
-
-        // Navigator, Search, ...
-        BoxPanel.setStretch(this.tabBar, 1); // Stretch tabs
-        headerPanel.addWidget(this.tabBar);
-
-        // Menu burger icon
-        BoxPanel.setStretch(this.topMenu, 0); // Fixed width for burger icon
-        headerPanel.addWidget(this.topMenu);
-
-        headerPanel.addClass('theia-header-panel');
-        container.id = `theia-${ side }-content-panel`;
+            // If clicked on already active tab
+            if (title === this.tabBar.currentTitle) {
+                // Toggle panel visibility
+                if (this.state.expansion === SidePanel.ExpansionState.expanded) {
+                    // Collapse panel
+                    super.collapse();
+                } else {
+                    // Expand panel
+                    this.refresh();
+                }
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            // Otherwise: click on inactive tab - base class handles activation
+        });
 
         return container;
     }
-
-    // Disable collapse
-    override async collapse(): Promise<void> {}
 }
