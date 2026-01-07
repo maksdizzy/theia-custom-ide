@@ -1,9 +1,6 @@
 // Flexbe Light Theme for Non-Technical Users
 // Design Reference: claudedocs/DESIGN_SPEC_NON_TECHNICAL_UI.md
 
-// Import premium design enhancements
-@import './premium-design.less';
-
 body.theia-light {
     // Core Flexbe colors
     --flexbe-background: #ffffff;
@@ -133,6 +130,12 @@ body.theia-light {
 
     .theia-TreeContainer .theia-TreeNode.theia-mod-selected {
         background: var(--flexbe-active);
+        color: var(--flexbe-text-primary) !important;
+
+        .theia-TreeNodeSegment,
+        .theia-TreeNodeSegmentGrow {
+            color: var(--flexbe-text-primary) !important;
+        }
     }
 }
 
