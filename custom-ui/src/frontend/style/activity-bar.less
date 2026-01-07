@@ -15,23 +15,25 @@
     }
 }
 
+/*
+   COMMENTED OUT: Now handled by ai-panel.less
+
 #theia-right-content-panel {
     position: relative;
     display: flex;
     flex-direction: row;
+    transition: min-width 0.18s ease, max-width 0.18s ease;
 
-    /* Когда панель скрыта - показываем только иконки */
     &.theia-mod-collapsed {
-        min-width: var(--theia-private-sidebar-tab-width) !important;
-        max-width: var(--theia-private-sidebar-tab-width) !important;
-
-        /* Скрыть контент панели */
+        min-width: var(--theia-private-sidebar-tab-width);
+        max-width: var(--theia-private-sidebar-tab-width);
         .theia-side-panel,
         .theia-sidepanel-toolbar {
-            display: none !important;
+            display: none;
         }
     }
 }
+*/
 
 /* Вертикальная панель иконок на правом краю */
 #theia-right-content-panel .lm-TabBar.theia-app-right {
@@ -81,7 +83,10 @@
     cursor: pointer;
     border: none;
     border-radius: 0;
-    transition: all 0.18s ease;
+
+    /* ОПТИМИЗИРОВАНО: Transition только для color и background, не для layout */
+    transition: color 0.15s ease, background-color 0.15s ease;
+    /* Удалено 'all' transition, вызывавшее мерцание при изменениях layout */
 }
 
 /* Иконка агента при наведении */

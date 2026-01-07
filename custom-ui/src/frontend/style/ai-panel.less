@@ -11,8 +11,8 @@
 
     /* Activity Bar (Icon Bar) - Always Visible */
     .theia-app-sides {
-        flex: 0 0 48px;
-        width: 48px;
+        flex: 0 0 64px;
+        width: 64px;
         background: var(--theia-activityBar-background);
         border-left: 1px solid var(--theia-activityBar-border);
         display: flex;
@@ -46,8 +46,8 @@
 
     /* Individual Icon Tabs */
     .lm-TabBar-tab {
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -59,9 +59,9 @@
 
         /* Icon styling */
         .p-TabBar-tabIcon {
-            width: 24px;
-            height: 24px;
-            background-size: 24px;
+            width: 32px;
+            height: 32px;
+            background-size: 32px;
             filter: grayscale(100%) brightness(0.8);
             transition: filter 0.15s ease;
         }
@@ -100,7 +100,7 @@
 
     /* Icon bar remains visible */
     .theia-app-sides {
-        flex: 0 0 48px;
+        flex: 0 0 64px;
     }
 }
 
@@ -108,18 +108,16 @@
 #theia-right-content-panel:not(.theia-mod-collapsed) {
     /* Smooth expand animation */
     .p-Widget:not(.theia-app-sides) {
-        animation: slideInRight 0.2s ease-out;
+        animation: fadeIn 0.15s ease-out;
     }
 }
 
-@keyframes slideInRight {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateX(20px);
     }
     to {
         opacity: 1;
-        transform: translateX(0);
     }
 }
 
