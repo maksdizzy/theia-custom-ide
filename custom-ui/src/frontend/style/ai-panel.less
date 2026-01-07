@@ -1,0 +1,156 @@
+/**
+ * AI Panel Styles
+ * Clean CSS architecture for right sidebar AI assistants panel
+ */
+
+/* Right Panel Container */
+#theia-right-content-panel {
+    display: flex;
+    flex-direction: row;
+    background: var(--theia-sideBar-background);
+
+    /* Activity Bar (Icon Bar) - Always Visible */
+    .theia-app-sides {
+        flex: 0 0 48px;
+        width: 48px;
+        background: var(--theia-activityBar-background);
+        border-left: 1px solid var(--theia-activityBar-border);
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Content Panel - Collapsible */
+    .p-Widget:not(.theia-app-sides) {
+        flex: 1 1 auto;
+        min-width: 300px;
+        max-width: 600px;
+    }
+}
+
+/* Activity Bar Layout (Vertical Icons) */
+#theia-right-content-panel .theia-app-sides {
+    .p-TabBar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .p-TabBar-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 0;
+        flex: 1;
+    }
+
+    /* Individual Icon Tabs */
+    .lm-TabBar-tab {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        border-left: 2px solid transparent;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+
+        /* Icon styling */
+        .p-TabBar-tabIcon {
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+            filter: grayscale(100%) brightness(0.8);
+            transition: filter 0.15s ease;
+        }
+
+        /* Hover state */
+        &:hover {
+            background: var(--theia-activityBar-hoverBackground);
+
+            .p-TabBar-tabIcon {
+                filter: grayscale(0%) brightness(1);
+            }
+        }
+
+        /* Active/Current state */
+        &.lm-mod-current {
+            background: var(--theia-activityBar-activeBackground);
+            border-left-color: var(--theia-activityBar-activeBorder);
+
+            .p-TabBar-tabIcon {
+                filter: grayscale(0%) brightness(1);
+            }
+        }
+
+        /* Hide text labels in vertical layout */
+        .p-TabBar-tabLabel {
+            display: none;
+        }
+    }
+}
+
+/* Collapsed State */
+#theia-right-content-panel.theia-mod-collapsed {
+    .p-Widget:not(.theia-app-sides) {
+        display: none;
+    }
+
+    /* Icon bar remains visible */
+    .theia-app-sides {
+        flex: 0 0 48px;
+    }
+}
+
+/* Expanded State */
+#theia-right-content-panel:not(.theia-mod-collapsed) {
+    /* Smooth expand animation */
+    .p-Widget:not(.theia-app-sides) {
+        animation: slideInRight 0.2s ease-out;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* AI Panel ViewContainer Styling */
+.theia-ai-panel {
+    /* Custom styling for AI panel container */
+    .p-TabBar-content {
+        gap: 2px;
+    }
+
+    /* Ensure proper spacing */
+    .p-Widget {
+        box-sizing: border-box;
+    }
+}
+
+/* Responsive: Narrow screens */
+@media (max-width: 1280px) {
+    #theia-right-content-panel {
+        .p-Widget:not(.theia-app-sides) {
+            min-width: 280px;
+            max-width: 400px;
+        }
+    }
+}
+
+/* Responsive: Wide screens */
+@media (min-width: 1920px) {
+    #theia-right-content-panel {
+        .p-Widget:not(.theia-app-sides) {
+            max-width: 700px;
+        }
+    }
+}
