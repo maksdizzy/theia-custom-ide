@@ -57,9 +57,13 @@ FROM node:20-alpine AS runtime
 
 # Install minimal runtime dependencies
 # - libsecret: For keytar credential storage (runtime library)
+# - curl: For health checks
 RUN apk add --no-cache \
     libsecret \
     curl
+
+# Install Claude Code globally for IDE extension support
+RUN npm install -g @anthropic-ai/claude-code && npm cache clean --force
 
 # Create non-root user for security
 RUN addgroup -S flexbe && adduser -S flexbe -G flexbe
@@ -80,6 +84,11 @@ COPY --from=builder /app/custom-ui/package.json ./custom-ui/package.json
 
 # Plugins (all downloaded and patched)
 COPY --from=builder /app/plugins ./plugins
+
+# Fix Claude Code native binary (Alpine musl can't run glibc binary from plugin)
+# Symlink to globally installed Claude CLI instead
+RUN rm -f /app/plugins/Anthropic.claude-code/extension/resources/native-binary/claude && \
+    ln -sf /usr/local/bin/claude /app/plugins/Anthropic.claude-code/extension/resources/native-binary/claude
 
 # Root package.json for metadata
 COPY --from=builder /app/package.json ./

@@ -39,7 +39,7 @@
     },
     "frontend": {
       "config": {
-        "applicationName": "Flexbe IDE",
+        "applicationName": "AI Workspace",
         "reloadOnReconnect": true,
         "preferences": {
           "toolbar.showToolbar": false,
@@ -134,7 +134,7 @@
           "window.secondaryWindowAlwaysOnTop": true,
           "window.secondaryWindowPlacement": "halfWidth",
           "window.tabbar.enhancedPreview": "classic",
-          "window.title": "Flexbe - ${activeEditorShort}",
+          "window.title": "AI Workspace - ${activeEditorShort}",
           "window.titleSeparator": " - ",
           "debug.confirmOnExit": "always",
           "debug.disassemblyView.showSourceCode": false,
