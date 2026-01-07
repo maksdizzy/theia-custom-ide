@@ -1,5 +1,3 @@
-import '@/frontend/style/ai-panel.less';
-
 import { Panel, SidePanelHandler as TheiaSidePanelHandler, type SideTabBar } from '@theia/core/lib/browser';
 import { inject, injectable, optional } from '@theia/core/shared/inversify';
 import { AIPanelToggleHandler } from '../ai-panel/ai-panel-toggle-handler';

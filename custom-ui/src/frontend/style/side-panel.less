@@ -5,7 +5,6 @@
     justify-content: space-between;
     min-height: var(--theia-horizontal-toolbar-height);
     padding: var(--theia-island-spacing) 0;
-    // background-color: var(--theia-activityBar-background);
     border: 0 !important;
 }
 
@@ -13,69 +12,101 @@
     min-width: 220px;
 }
 
-/* Left panel only: horizontal tabs with text labels */
+/* Left panel: VERTICAL icons (same format as right panel) */
 #theia-left-content-panel .lm-TabBar.theia-app-sides {
-    /* Top tabs */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 100%;
-    background: unset;
-
-    /* Tabs container */
-    .theia-tabBar-tab-row {
-        overflow-x: auto;
-        scrollbar-width: none;
-        --theia-scrollbar-width: 0px;
-    }
+    flex-direction: column !important;
+    flex: 0 0 var(--theia-private-left-sidebar-tab-width) !important;
+    width: var(--theia-private-left-sidebar-tab-width) !important;
 
     .lm-TabBar-content {
-        display: flex;
-        gap: var(--theia-island-spacing);
-        cursor: default;
-    }
-
-    /* Tab */
-    .lm-TabBar-tab {
+        flex-direction: column;
+        gap: 0;
         padding: 0;
-        min-width: 0;
-        min-height: 0 !important;
-        max-height: var(--theia-private-sidebar-tab-height);
-        border-radius: var(--theia-island-border-radius-sm);
-        cursor: pointer;
-        background-color: transparent;
-        transition: all 0.18s ease;
     }
+}
 
-    /* Tab:hover */
-    .lm-TabBar-tab:hover {
-        background-color: var(--theia-tab-hoverBackground);
-    }
+/* Вертикальная панель иконок на левом краю */
+#theia-left-content-panel .lm-TabBar.theia-app-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--theia-private-left-sidebar-tab-width);
+    z-index: 100;
 
-    /* Tab:active */
-    .lm-TabBar-tab.lm-mod-current {
-        background-color: var(--theia-tab-activeBackground);
-    }
+    /* Вертикальная ориентация */
+    display: flex;
+    flex-direction: column;
 
-    /* Button with icon and label */
-    .lm-TabBar-tab .theia-tab-icon-label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 10px;
-    }
+    /* Цвета из темы */
+    color: var(--theia-activityBar-inactiveForeground);
+    background: var(--theia-activityBar-background);
 
-    .lm-TabBar-tabIcon {
-        width: var(--theia-private-sidebar-icon-size);
-        height: var(--theia-private-sidebar-icon-size);
-    }
+    /* Размеры */
+    min-width: var(--theia-private-left-sidebar-tab-width);
+    max-width: var(--theia-private-left-sidebar-tab-width);
+    flex: 0 0 var(--theia-private-left-sidebar-tab-width) !important;
+    overflow: hidden;
 
-    /* Label */
-    .lm-TabBar-tabLabel {
-        display: inline-flex;
-        white-space: nowrap;
-        margin-left: 8px;
-    }
+    padding: 0;
+    margin: 0;
+}
+
+/* Иконки Explorer, Search, Git */
+#theia-left-content-panel .lm-TabBar.theia-app-left .lm-TabBar-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Размеры */
+    min-height: var(--theia-private-sidebar-tab-height);
+    min-width: var(--theia-private-left-sidebar-tab-width);
+    padding: var(--theia-private-sidebar-tab-padding-top-and-bottom) 0;
+
+    /* Цвета */
+    background: var(--theia-activityBar-background);
+    color: var(--theia-activityBar-inactiveForeground);
+
+    /* Стиль */
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Иконка при наведении */
+#theia-left-content-panel .lm-TabBar.theia-app-left .lm-TabBar-tab:hover {
+    color: var(--theia-activityBar-foreground);
+    background-color: var(--theia-activityBar-activeBackground);
+}
+
+/* Активная иконка */
+#theia-left-content-panel .lm-TabBar.theia-app-left .lm-TabBar-tab.lm-mod-current {
+    color: var(--theia-activityBar-foreground);
+    background-color: var(--theia-activityBar-activeBackground);
+
+    /* Правый бордер как индикатор активности */
+    box-shadow: 2px 0 0 var(--theia-activityBar-activeBorder) inset;
+}
+
+/* Размер иконок */
+#theia-left-content-panel .lm-TabBar.theia-app-left .lm-TabBar-tabIcon {
+    width: var(--theia-private-left-sidebar-icon-size);
+    height: var(--theia-private-left-sidebar-icon-size);
+}
+
+/* Контент панели не должен перекрываться иконками */
+#theia-left-content-panel .theia-side-panel,
+#theia-left-content-panel .theia-sidepanel-toolbar {
+    margin-left: var(--theia-private-left-sidebar-tab-width);
+}
+
+/* Скрыть лейблы иконок (только иконки, как справа) */
+#theia-left-content-panel .lm-TabBar.theia-app-left .lm-TabBar-tabLabel {
+    display: none;
 }
 
 // Toolbar with widget name and actions

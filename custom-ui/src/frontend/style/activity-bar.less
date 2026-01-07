@@ -1,9 +1,19 @@
 /* Вертикальная панель иконок AI агентов на правом краю экрана */
 
-/* Reset inherited .theia-app-sides horizontal styles for right panel */
-#theia-right-content-panel .lm-TabBar.theia-app-sides {
-    flex-direction: column;
+/* Reset inherited .theia-app-sides horizontal styles for right panel
+   КРИТИЧЕСКАЯ СПЕЦИФИЧНОСТЬ: Увеличиваем специфичность чтобы переопределить Theia core
+   Theia core использует: #theia-right-content-panel .theia-app-sides { flex: 0 0 64px; }
+   Мы используем более специфичный селектор с .lm-Widget.lm-TabBar для гарантированного override */
+#theia-right-content-panel .lm-Widget.lm-TabBar.theia-app-sides,
+#theia-right-content-panel .lm-TabBar.theia-app-sides,
+#theia-right-content-panel .theia-app-sides {
+    flex-direction: column !important;
+    /* ВАЖНО: переопределяем flex-basis из Theia core (64px → 30px) */
+    flex: 0 0 var(--theia-private-sidebar-tab-width) !important;
+    width: var(--theia-private-sidebar-tab-width) !important;
+}
 
+#theia-right-content-panel .lm-TabBar.theia-app-sides {
     .lm-TabBar-content {
         flex-direction: column;
         gap: 0;
@@ -52,9 +62,10 @@
     color: var(--theia-activityBar-inactiveForeground);
     background: var(--theia-activityBar-background);
 
-    /* Размеры */
+    /* Размеры - ВАЖНО: переопределяем flex-basis из Theia core */
     min-width: var(--theia-private-sidebar-tab-width);
     max-width: var(--theia-private-sidebar-tab-width);
+    flex: 0 0 var(--theia-private-sidebar-tab-width) !important;
     overflow: hidden;
 
     /* Убрать стандартный отступ */

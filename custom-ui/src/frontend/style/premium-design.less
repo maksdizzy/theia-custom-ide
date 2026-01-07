@@ -39,15 +39,15 @@ body.theia-light {
 // Panel Shadows & Depth
 // ============================================
 body.theia-light {
-    // Left sidebar - subtle shadow on right edge
+    // Left sidebar - clean appearance without bottom shadow
     #theia-left-content-panel {
-        box-shadow: var(--flexbe-shadow-md);
+        // Removed box-shadow to prevent gradient darkening at bottom
         z-index: 10;
     }
 
-    // Right sidebar - subtle shadow on left edge
+    // Right sidebar - clean appearance without bottom shadow
     #theia-right-content-panel {
-        box-shadow: var(--flexbe-shadow-md);
+        // Removed box-shadow to prevent gradient darkening at bottom
         z-index: 10;
     }
 
@@ -120,10 +120,10 @@ body.theia-light {
         padding: var(--flexbe-space-2) var(--flexbe-space-3);
     }
 
-    // Tab bar content padding
-    .lm-TabBar.theia-app-sides .lm-TabBar-content {
-        padding: var(--flexbe-space-2) var(--flexbe-space-3);
-    }
+    // Tab bar content padding (DISABLED - conflicts with vertical icon layout)
+    // .lm-TabBar.theia-app-sides .lm-TabBar-content {
+    //     padding: var(--flexbe-space-2) var(--flexbe-space-3);
+    // }
 }
 
 // ============================================
@@ -155,21 +155,21 @@ body.theia-light {
         }
     }
 
-    // Tab hover effects
-    .lm-TabBar.theia-app-sides .lm-TabBar-tab {
-        &:hover {
-            background: var(--flexbe-hover);
-            transform: translateY(-1px);
-        }
+    // Tab hover effects (DISABLED - conflicts with vertical icon layout)
+    // .lm-TabBar.theia-app-sides .lm-TabBar-tab {
+    //     &:hover {
+    //         background: var(--flexbe-hover);
+    //         transform: translateY(-1px);
+    //     }
 
-        &.lm-mod-current {
-            transform: none;
+    //     &.lm-mod-current {
+    //         transform: none;
 
-            &:hover {
-                transform: none;
-            }
-        }
-    }
+    //         &:hover {
+    //             transform: none;
+    //         }
+    //     }
+    // }
 
     // Button hover effects
     .theia-button,

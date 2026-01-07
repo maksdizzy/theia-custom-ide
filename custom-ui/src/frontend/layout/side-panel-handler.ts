@@ -33,32 +33,82 @@ export class SidePanelHandler extends TheiaSidePanelHandler {
 
     /**
      * Setup click-to-toggle behavior for right panel.
-     * Click on active icon collapses panel, click again expands it.
+     * Uses state guards and proper event sequencing to prevent flickering.
      */
     private setupToggleBehavior(): void {
+        // Флаг для предотвращения реентрантных вызовов во время переходов
+        let isToggling = false;
+
         this.tabBar.node.addEventListener('click', (event) => {
             const tab = (event.target as HTMLElement).closest('.lm-TabBar-tab');
             if (!tab) return;
+
+            // КРИТИЧНО: Остановить распространение ДО любых изменений состояния
+            event.stopPropagation();
+            event.preventDefault();
 
             const index = Array.from(this.tabBar.node.querySelectorAll('.lm-TabBar-tab')).indexOf(tab);
             const title = this.tabBar.titles[index];
 
             if (!title) return;
 
-            // Toggle only on active tab click
+            // Переключать только при клике на активную вкладку
             if (title === this.tabBar.currentTitle) {
-                if (this.state.expansion === SidePanel.ExpansionState.expanded) {
-                    // Collapse panel
-                    super.collapse();
-                } else {
-                    // Expand panel - use expand() to properly set currentTitle
-                    // This triggers onCurrentTabChanged -> refresh() -> CSS class update
-                    this.expand(title.owner.id);
+                // ЗАЩИТА СОСТОЯНИЯ: Не переключать во время анимаций expand/collapse
+                if (isToggling ||
+                    this.state.expansion === SidePanel.ExpansionState.expanding ||
+                    this.state.expansion === SidePanel.ExpansionState.collapsing) {
+                    return;
                 }
-                event.stopPropagation();
-                event.preventDefault();
+
+                isToggling = true;
+
+                if (this.state.expansion === SidePanel.ExpansionState.expanded) {
+                    // Свернуть панель
+                    super.collapse().then(() => {
+                        isToggling = false;
+                    });
+                } else {
+                    // Развернуть панель - отложить, чтобы избежать гонки с обработчиками Theia
+                    // Используем requestAnimationFrame для завершения текущего цикла событий
+                    requestAnimationFrame(() => {
+                        this.expand(title.owner.id);
+                        // Сбросить флаг после стабилизации layout
+                        requestAnimationFrame(() => {
+                            isToggling = false;
+                        });
+                    });
+                }
             }
-            // Otherwise: click on inactive tab - base class handles activation
-        });
+            // Иначе: клик на неактивную вкладку - базовый класс обрабатывает активацию
+        }, { capture: true }); // Фаза CAPTURE для перехвата до обработчиков Lumino
+    }
+
+    /**
+     * Override collapse to ensure clean state transitions
+     */
+    override async collapse(): Promise<void> {
+        // Убедиться, что состояние позволяет сворачивание
+        if (this.state.expansion === SidePanel.ExpansionState.collapsed ||
+            this.state.expansion === SidePanel.ExpansionState.collapsing) {
+            return;
+        }
+
+        // Вызвать родительский collapse с await для гарантии завершения
+        await super.collapse();
+    }
+
+    /**
+     * Override refresh for right panel to minimize layout thrashing
+     */
+    override refresh(): void {
+        // Для правой панели группируем DOM обновления для предотвращения множественных reflow
+        if (this.side === 'right') {
+            requestAnimationFrame(() => {
+                super.refresh();
+            });
+        } else {
+            super.refresh();
+        }
     }
 }
