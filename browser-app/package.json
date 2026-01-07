@@ -56,13 +56,16 @@
           "editor.minimap.enabled": false,
           "editor.renderWhitespace": "all",
           "files.exclude": {
-            "**/.git": true,
-            "**/.svn": true,
-            "**/.hg": true,
-            "**/CVS": true,
-            "**/.DS_Store": true,
-            "**/vscode": true,
+            "**/.*": true,
             "**/node_modules": true
+          },
+          "workbench.editorAssociations": {
+            "*.xlsx": "cweijan.officeViewer",
+            "*.docx": "cweijan.officeViewer",
+            "*.pptx": "cweijan.officeViewer",
+            "*.pdf": "cweijan.officeViewer",
+            "*.csv": "cweijan.officeViewer",
+            "*.md": "cweijan.markdownViewer"
           },
           "workbench.statusBar.visible": true,
           "editor.bracketPairColorization.enabled": true,

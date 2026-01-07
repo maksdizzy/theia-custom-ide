@@ -60,7 +60,8 @@ FROM node:20-alpine AS runtime
 # - curl: For health checks
 RUN apk add --no-cache \
     libsecret \
-    curl
+    curl \
+    git
 
 # Install Claude Code globally for IDE extension support
 RUN npm install -g @anthropic-ai/claude-code && npm cache clean --force
