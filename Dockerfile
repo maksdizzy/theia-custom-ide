@@ -35,7 +35,10 @@ COPY browser-app/package*.json ./browser-app/
 COPY custom-ui/package*.json ./custom-ui/
 
 # Install all dependencies (including devDependencies for build)
-RUN npm ci --legacy-peer-deps
+# Mount GitHub token as secret to avoid rate limiting during @vscode/ripgrep download
+RUN --mount=type=secret,id=github_token \
+    export GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || echo "") && \
+    npm ci --legacy-peer-deps
 
 # Copy source code
 COPY browser-app/ ./browser-app/
