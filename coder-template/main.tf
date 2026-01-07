@@ -43,31 +43,9 @@ locals {
 # -----------------------------------------------------------------------------
 
 resource "coder_agent" "main" {
-  arch                   = data.coder_provisioner.me.arch
-  os                     = "linux"
-  dir                    = "/workspace"
-  startup_script_timeout = 300
-
-  startup_script = <<-EOT
-    set -e
-
-    # Wait for IDE to be ready
-    echo "Starting AI Workspace..."
-
-    # Clone git repository if URL is provided
-    if [ -n "${data.coder_parameter.git_repo.value}" ]; then
-      echo "Cloning repository: ${data.coder_parameter.git_repo.value}"
-      if [ ! -d "/workspace/project/.git" ]; then
-        git clone "${data.coder_parameter.git_repo.value}" /workspace/project
-        echo "Repository cloned successfully"
-      else
-        echo "Repository already exists, pulling latest changes..."
-        cd /workspace/project && git pull || true
-      fi
-    fi
-
-    echo "AI Workspace is ready!"
-  EOT
+  arch = data.coder_provisioner.me.arch
+  os   = "linux"
+  dir  = "/workspace"
 
   env = {
     GIT_AUTHOR_NAME     = data.coder_workspace_owner.me.full_name
@@ -99,6 +77,39 @@ resource "coder_agent" "main" {
     interval     = 60
     timeout      = 3
   }
+}
+
+# -----------------------------------------------------------------------------
+# Coder Script - Startup Tasks
+# -----------------------------------------------------------------------------
+
+resource "coder_script" "startup" {
+  agent_id     = coder_agent.main.id
+  display_name = "Startup"
+  icon         = "/icon/coder.svg"
+  run_on_start = true
+  timeout      = 300
+
+  script = <<-EOT
+    #!/bin/bash
+    set -e
+
+    echo "Starting AI Workspace..."
+
+    # Clone git repository if URL is provided
+    if [ -n "${data.coder_parameter.git_repo.value}" ]; then
+      echo "Cloning repository: ${data.coder_parameter.git_repo.value}"
+      if [ ! -d "/workspace/project/.git" ]; then
+        git clone "${data.coder_parameter.git_repo.value}" /workspace/project
+        echo "Repository cloned successfully"
+      else
+        echo "Repository already exists, pulling latest changes..."
+        cd /workspace/project && git pull || true
+      fi
+    fi
+
+    echo "AI Workspace is ready!"
+  EOT
 }
 
 # -----------------------------------------------------------------------------
