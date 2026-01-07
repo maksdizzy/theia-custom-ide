@@ -15,8 +15,10 @@ import { initSearchWidget } from './search/search-in-workspace-factory';
 // Note: AI extensions (Claude, Codex, Gemini, Composio) are native VS Code extensions
 import { bindStatusBarSimplification } from './status-bar/status-bar-contribution';
 import { bindBottomPanelClose } from './bottom-panel';
+import './ai-panel';
 
 export default new ContainerModule((bind, unbind, isBound, rebind) => {
+
     // Filter out modules we don't want to see in the editor
     registerFilters({ bind, rebind });
 

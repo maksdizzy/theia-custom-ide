@@ -65,15 +65,16 @@ export class ShellInitContribution extends DefaultFrontendApplicationContributio
     }
 
     /**
-     * Opens Claude Code panel in right sidebar.
+     * Opens AI Panel in right sidebar.
      * Uses timeout to wait for plugin system to initialize.
      */
     protected openClaudeCodePanel(): void {
         setTimeout(async () => {
             try {
-                await this.commandService.executeCommand('claude.openInSideBar');
+                // Open AI Panel container which will discover and show AI widgets
+                await this.commandService.executeCommand('ai-panel.reveal-claude');
             } catch {
-                // Plugin not available or command not found, ignore silently
+                // AI Panel not available, ignore silently
             }
         }, 1500);
     }

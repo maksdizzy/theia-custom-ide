@@ -17,7 +17,7 @@ import { injectable, postConstruct, type interfaces } from '@theia/core/shared/i
 
 import { FrontendApplication } from './frontend-application';
 import { ShellInitContribution } from './shell-init-contribution';
-import { SidePanelHandler } from './side-panel-handler';
+import { CustomSidePanelHandler } from './custom-side-panel-handler';
 
 
 export function initApplicationShell({ bind, rebind }: { bind: interfaces.Bind; rebind: interfaces.Rebind }): void {
@@ -31,9 +31,9 @@ export function initApplicationShell({ bind, rebind }: { bind: interfaces.Bind; 
     bind(ShellInitContribution).toSelf().inSingletonScope();
     bind(FrontendApplicationContribution).toService(ShellInitContribution);
 
-    // Side panel handler
-    bind(SidePanelHandler).toSelf();
-    rebind(SidePanelHandlerFactory).toAutoFactory(SidePanelHandler);
+    // Custom side panel handler with AI panel toggle support
+    bind(CustomSidePanelHandler).toSelf();
+    rebind(SidePanelHandlerFactory).toAutoFactory(CustomSidePanelHandler);
 }
 
 @injectable()
